@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "374133622959",
+    "project_id": "flowerbroad-35a0a",
+    "storage_bucket": "flowerbroad-35a0a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:374133622959:android:0710bde68709a763f06c5a",
+        "android_client_info": {
+          "package_name": "com.example.flowerboard"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "374133622959-9rmv7dh6jvqg42439f567hqu12fi7kpl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBIjefk08BSJH3YK3G1w7h3PzQr9eWX104"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "374133622959-9rmv7dh6jvqg42439f567hqu12fi7kpl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
