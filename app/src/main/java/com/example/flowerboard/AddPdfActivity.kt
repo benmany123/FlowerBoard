@@ -243,8 +243,8 @@ class AddPdfActivity : AppCompatActivity() {
         Log.d(TAG, "pdfPickIntent: starting pdf pick intent")
 
         val intent = Intent()
-        //intent.type = "application/pdf"
-        intent.type = "image/png"
+        intent.type = "application/pdf"
+        //intent.type = "image/png"
         intent.action = Intent.ACTION_GET_CONTENT
         pdfActivityResultLauncher.launch(intent)
 
