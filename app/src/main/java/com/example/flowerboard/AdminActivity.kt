@@ -1,4 +1,5 @@
 package com.example.flowerboard
+
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -68,6 +69,12 @@ class AdminActivity : AppCompatActivity() {
         binding.addCategoryButton.setOnClickListener {
             startActivity(Intent(this, CategoryActivity::class.java))
         }
+
+        //handle click, start add pdf page
+        binding.addPdfFab.setOnClickListener {
+            startActivity(Intent(this, AddPdfActivity::class.java))
+        }
+
 
     }
 
