@@ -9,7 +9,7 @@ import android.widget.Filterable
 import androidx.recyclerview.widget.RecyclerView
 import com.example.flowerboard.databinding.RowPdfAdminBinding
 
-class AdminPdfAdapter :RecyclerView.Adapter<AdminPdfAdapter.AdminPdfHolder>, Filterable{
+class AdminPdfAdapter :RecyclerView.Adapter<AdminPdfAdapter.AdminPdfHolder>{//, Filterable{
 
     // context
     private var context: Context
@@ -66,7 +66,7 @@ class AdminPdfAdapter :RecyclerView.Adapter<AdminPdfAdapter.AdminPdfHolder>, Fil
         MyApplication.loadPdf(pdfUrl, title, holder.pdfView, holder.progressBar, null)
 
         //load pdf size
-        MyApplication.loadPdfSize(pdfUrl, title, holder.sizeTv)
+        //MyApplication.loadPdfSize(pdfUrl, title, holder.sizeTv)
 
     }
 
@@ -74,13 +74,13 @@ class AdminPdfAdapter :RecyclerView.Adapter<AdminPdfAdapter.AdminPdfHolder>, Fil
         return pdfArrayList.size //items count
     }
 
-    override fun getFilter(): Filter {
+    /*override fun getFilter(): Filter {
         if(filter == null){
             filter = AdminFilterPdf(filterList, this)
         }
 
         return filter as AdminFilterPdf
-    }
+    }*/
 
 
     //View Holder class for row_pdf_admin.xml
@@ -91,7 +91,7 @@ class AdminPdfAdapter :RecyclerView.Adapter<AdminPdfAdapter.AdminPdfHolder>, Fil
         val titleTv = binding.titleTv
         val descriptionTv = binding.descriptionTv
         val categoryTv = binding.categoryTv
-        val sizeTv = binding.sizeTv
+        //val sizeTv = binding.sizeTv
         val dateTv = binding.dateTv
         val moreBtn = binding.moreButton
     }

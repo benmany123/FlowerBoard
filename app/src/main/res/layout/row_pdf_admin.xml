@@ -69,7 +69,7 @@
             android:maxLines="1"
             android:text="Category" />
 
-        <!--Size-->
+        <!--Size
         <TextView
             android:id="@+id/sizeTv"
             android:layout_width="wrap_content"
@@ -77,9 +77,9 @@
             android:layout_alignParentBottom="true"
             android:layout_toEndOf="@+id/pdfRow1"
             android:maxLines="1"
-            android:text="13MB"/>
+            android:text="13MB" />-->
 
-        <!--Date-->
+        <!--Date android:layout_toEndOf="@id/sizeTv"-->
         <TextView
             android:id="@+id/dateTv"
             style="@style/TextAppearance.MaterialComponents.Caption"
@@ -87,7 +87,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_toStartOf="@+id/categoryTv"
-            android:layout_toEndOf="@id/sizeTv"
+            android:layout_marginRight="50dp"
             android:maxLines="1"
             android:text="dd/MM/YYYY"
             android:textAlignment="center"/>
