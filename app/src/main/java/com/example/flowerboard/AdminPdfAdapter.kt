@@ -21,7 +21,7 @@ class AdminPdfAdapter :RecyclerView.Adapter<AdminPdfAdapter.AdminPdfHolder>{//, 
     private lateinit var binding: RowPdfAdminBinding
 
     //filter object
-    var filter: AdminFilterPdf? = null
+    //var filter: AdminFilterPdf? = null
 
     //constructor
     constructor(context: Context, pdfArrayList: ArrayList<modelPdf>) : super() {

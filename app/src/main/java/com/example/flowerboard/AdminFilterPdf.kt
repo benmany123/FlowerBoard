@@ -3,7 +3,7 @@ package com.example.flowerboard
 import android.widget.Filter
 
 //Filter data from recycle view | search pdf from pdf list in recycleview
-class AdminFilterPdf: Filter {
+class AdminFilterPdf1: Filter {
     //search array list
     var filterList: ArrayList<modelPdf>
     //adapter in which filter need to be implemented
