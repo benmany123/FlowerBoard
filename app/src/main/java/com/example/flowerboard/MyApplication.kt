@@ -31,10 +31,10 @@ class MyApplication:Application() {
         }
 
         //function to get pdf size
-        fun loadPdfSize(pdfUrl: String, pdfTitle: String, sizeTv: TextView){
+        /*fun loadPdfSize(pdfUrl: String, pdfTitle: String, sizeTv: TextView){
             val TAG ="PDF_SIZE_TAG"
 
-        //using url we can get file and its medata from firebase storage
+        //using url we can get file and its meta data from firebase storage
             val ref = FirebaseStorage.getInstance().getReferenceFromUrl(pdfUrl)
             ref.metadata
                 .addOnSuccessListener {storageMetaData->
@@ -59,7 +59,7 @@ class MyApplication:Application() {
                     
                 }
 
-        }
+        }*/
 
 
 
@@ -74,7 +74,7 @@ class MyApplication:Application() {
             progressBar: ProgressBar,
             pagesTv: TextView?
         ){
-            val TAG = "PDF_THUMBNNAIL_TAG"
+            val TAG = "PDF_THUMBNAIL_TAG"
 
             //using url we can get file and its metadata from firebase storage
             val ref = FirebaseStorage.getInstance().getReferenceFromUrl(pdfUrl)
@@ -85,7 +85,7 @@ class MyApplication:Application() {
 
                     //Set to pdfview
                     pdfView.fromBytes(bytes)
-                        .pages(0) // show firest page only
+                        .pages(0) // show first page only
                         .spacing(0)
                         .swipeHorizontal(false)
                         .enableSwipe(false)
