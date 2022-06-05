@@ -47,7 +47,7 @@ class PdfListAdminActivity : AppCompatActivity() {
         loadPdfList()
 
         //search
-        binding.searchEdit.addTextChangedListener(object: TextWatcher{
+        /*binding.searchEdit.addTextChangedListener(object: TextWatcher{
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
 
             }
@@ -66,7 +66,7 @@ class PdfListAdminActivity : AppCompatActivity() {
 
             }
 
-        })
+        })*/
     }
 
     private fun loadPdfList() {
