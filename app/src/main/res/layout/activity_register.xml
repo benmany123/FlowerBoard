@@ -11,50 +11,44 @@
     <RelativeLayout
         android:id="@+id/toolbarRl"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:background="@drawable/toolbar01">
+        android:layout_height="250dp">
 
         <ImageView
             android:id="@+id/backButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
             android:layout_margin="10dp"
+            android:background="@android:color/transparent"
             android:padding="10dp"
-            android:src="@drawable/ic_back_white"/>
-        
+            android:src="@drawable/ic_back_black" />
+
         <ImageView
             android:id="@+id/iconIv"
-            android:layout_width="110dp"
-            android:layout_height="110dp"
+            android:layout_width="match_parent"
+            android:layout_height="170dp"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="40dp"
-            android:src="@drawable/logo"/>
+            android:layout_marginTop="30dp"
+            android:src="@drawable/logo2" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/iconIv"
+            android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
-            android:text="Create New Account"
-            android:textColor="@color/white"
             android:fontFamily="sans-serif-condensed-medium"
-            android:textSize="28sp"
-            android:layout_centerHorizontal="true"/>
+            android:text="Create New Account"
+            android:textColor="@color/black"
+            android:textSize="28sp" />
 
     </RelativeLayout>
 
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginStart="40dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginTop="225dp">
-
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginTop="270dp">
 
             <!--Name-->
             <com.google.android.material.textfield.TextInputLayout
@@ -70,6 +64,7 @@
                     android:background="@drawable/edittext01"
                     android:drawableStart="@drawable/ic_person_grey"
                     android:drawablePadding="10dp"
+                    android:layout_marginBottom="5dp"
                     android:hint="Name"
                     android:inputType="textPersonName|textCapWords"
                     android:padding="10dp"
@@ -94,6 +89,7 @@
                     android:background="@drawable/edittext01"
                     android:drawableStart="@drawable/ic_email_grey"
                     android:drawablePadding="10dp"
+                    android:layout_marginBottom="5dp"
                     android:hint="Email"
                     android:inputType="textEmailAddress"
                     android:padding="10dp"
@@ -120,6 +116,7 @@
                     android:background="@drawable/edittext01"
                     android:drawableStart="@drawable/ic_lock_grey"
                     android:drawablePadding="10dp"
+                    android:layout_marginBottom="5dp"
                     android:hint="Password"
                     android:inputType="textPassword"
                     android:padding="10dp"
@@ -145,6 +142,7 @@
                 android:background="@drawable/edittext01"
                 android:drawableStart="@drawable/ic_lock_grey"
                 android:drawablePadding="10dp"
+                android:layout_marginBottom="5dp"
                 android:hint="Confirm Password"
                 android:inputType="textPassword"
                 android:padding="10dp"
@@ -165,8 +163,5 @@
                 android:textColor="@color/white"/>
 
         </RelativeLayout>
-    </ScrollView>
-
-
 
 </RelativeLayout>
