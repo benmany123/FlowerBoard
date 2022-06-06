@@ -22,8 +22,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         //handle click, skip and continue to main screen
-        binding.skipButton.setOnClickListener {
+        /*binding.skipButton.setOnClickListener {
             startActivity(Intent(this,UserActivity::class.java))
-        }
+        }*/
     }
 }

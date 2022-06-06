@@ -10,39 +10,51 @@
 
     <ImageView
         android:id="@+id/iconIv"
-        android:layout_width="200dp"
+        android:layout_width="wrap_content"
         android:layout_height="200dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
-        android:src="@drawable/logo"/>
+        android:src="@drawable/logo" />
 
     <TextView
+        android:id="@+id/text1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/iconIv"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:text="Welcome"
+        android:layout_marginTop="40dp"
+        android:text="Welcome to our workshop"
         android:textColor="@color/black"
-        android:textSize="16sp"/>
+        android:textSize="28sp"/>
 
+    <TextView
+        android:id="@+id/text2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text1"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="40dp"
+        android:text="Most of people think the traditional flower board is very expensive. In fact, it can be more popularize.
+        \n\nIn this app, we would like to promote our products and make more people to recognize this HK traditional cultures."
+        android:textColor="@color/black"
+        android:textSize="21sp" />
+
+    <!--android:layout_above="@id/skipButton"-->
     <Button
         android:id="@+id/loginButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+        android:layout_below="@id/text2"
         android:background="@drawable/button01"
         android:text="Login"
-        android:layout_above="@id/skipButton"
-        android:textColor="@color/white"/>
+        android:textColor="@color/white" />
 
-    <Button
+    <!--<Button
         android:id="@+id/skipButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:background="@drawable/button02"
         android:text="Continue without login"
-        android:textColor="@color/white"
-        android:background="@drawable/button02"/>
+        android:textColor="@color/white" />-->
 
 </RelativeLayout>
