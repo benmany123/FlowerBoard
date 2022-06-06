@@ -86,15 +86,20 @@ class AddPdfActivity : AppCompatActivity() {
     private var title = ""
     private var description = ""
     private var category = ""
+    private var price = ""
+
 
     private fun validateData() {
         //1. Validate data
         Log.d(TAG, "validateData: Validating data")
 
         //get data
-        title = binding.titleEt.text.toString().trim()
+        title = binding.titleEdit.text.toString().trim()
         description = binding.descriptionEdit.text.toString().trim()
         category = binding.categoryTv.text.toString().trim()
+
+        //test
+        price = binding.priceEdit.text.toString().trim()
 
         //validate data
         if (title.isEmpty()){
@@ -165,8 +170,9 @@ class AddPdfActivity : AppCompatActivity() {
         hashMap["categoryId"] = "$selectedCategoryId"
         hashMap["url"] = "$uploadPdfUrl"
         hashMap["timestamp"] = timestamp
-        hashMap["viewsCount"] = 0
-        hashMap["downloadsCount"] = 0
+        //hashMap["viewsCount"] = 0
+        //hashMap["downloadsCount"] = 0
+        hashMap["price"] = "$price"
 
         //db reference DB > Flower Boards > Product ID > Flower Board Info
         val ref = FirebaseDatabase.getInstance().getReference("FlowerBoards")

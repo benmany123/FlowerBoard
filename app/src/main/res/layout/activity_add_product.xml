@@ -71,14 +71,14 @@
             app:hintEnabled="false">
 
             <EditText
-                android:id="@+id/titleEt"
+                android:id="@+id/titleEdit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
+                android:layout_marginBottom="5dp"
                 android:background="@drawable/edittext01"
                 android:drawableStart="@drawable/ic_product"
                 android:drawablePadding="12dp"
-                android:padding="12dp"
+                android:padding="9dp"
                 android:maxLines="1"
                 android:inputType="textCapWords|textPersonName"
                 android:textColor="@color/black"
@@ -103,12 +103,12 @@
                 android:id="@+id/descriptionEdit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
+                android:layout_marginBottom="5dp"
                 android:background="@drawable/edittext01"
                 android:drawableStart="@drawable/ic_details"
                 android:maxLines="3"
                 android:drawablePadding="12dp"
-                android:padding="12dp"
+                android:padding="9dp"
                 android:hint="Product Description"
                 android:inputType="textCapSentences|textMultiLine"
                 android:textSize="16sp"
@@ -126,7 +126,7 @@
             android:layout_marginStart="30dp"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="30dp"
-            android:layout_marginBottom="12dp"
+            android:layout_marginBottom="5dp"
             android:background="@drawable/edittext01"
             android:drawableStart="@drawable/ic_category"
             android:drawableEnd="@drawable/ic_dropdown"
@@ -138,13 +138,41 @@
             android:textColorHint="@color/grey01"
             android:textSize="16sp" />
 
-        <!--Button: Upload pdf-->
+        <!--test-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/priceTIL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/categoryTv"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="30dp"
+            app:hintEnabled="false">
 
+            <EditText
+                android:id="@+id/priceEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/edittext01"
+                android:drawableStart="@drawable/ic_money"
+                android:maxLines="3"
+                android:drawablePadding="12dp"
+                android:padding="9dp"
+                android:hint="Price"
+                android:inputType="textCapSentences|textMultiLine"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/grey01"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <!--test End-->
+        <!--Button: Upload pdf-->
         <Button
             android:id="@+id/submitButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/categoryTv"
+            android:layout_below="@id/priceTIL"
             android:layout_marginStart="30dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="30dp"

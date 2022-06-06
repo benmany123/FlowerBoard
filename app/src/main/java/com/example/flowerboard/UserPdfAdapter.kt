@@ -43,6 +43,10 @@ class UserPdfAdapter : RecyclerView.Adapter<UserPdfAdapter.HolderPdfUser> {
         val url = model.url
         val timestamp = model.timestamp
 
+        //test
+        val test = model.id
+
+
         //convert time
         val date = MyApplication.formatTimeStamp(timestamp)
 
@@ -50,6 +54,9 @@ class UserPdfAdapter : RecyclerView.Adapter<UserPdfAdapter.HolderPdfUser> {
         holder.titleTv.text = title
         holder.descriptionTv.text = description
         holder.dateTv.text = date
+
+        //test
+        holder.textTv.text = test
 
         MyApplication.loadPdf(url, title, holder.imageView, holder.progressBar, null)
 
@@ -71,6 +78,7 @@ class UserPdfAdapter : RecyclerView.Adapter<UserPdfAdapter.HolderPdfUser> {
         var descriptionTv = binding.descriptionTv
         var categoryTv = binding.categoryTv
         var dateTv = binding.dateTv
+        var textTv = binding.textTv
     }
 
 

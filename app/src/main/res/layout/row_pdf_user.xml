@@ -80,6 +80,18 @@
             android:text="dd/mm/yyyy"
             android:textAlignment="center" />
 
+        <!--Product Update Date-->
+        <TextView
+            android:id="@+id/textTv"
+            style="@style/TextAppearance.MaterialComponents.Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="50dp"
+            android:layout_toLeftOf="@id/dateTv"
+            android:text="11"
+            android:textAlignment="center" />
+
     </RelativeLayout>
 
 

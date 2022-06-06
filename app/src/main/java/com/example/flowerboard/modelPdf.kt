@@ -10,8 +10,9 @@ class modelPdf {
     var categoryId: String =""
     var url: String =""
     var timestamp: Long = 0
-    var viewsCount: Long = 0
-    var downloadsCount: Long = 0
+    //var viewsCount: Long = 0
+    //var downloadsCount: Long = 0
+    var price: String =""
 
     //empty constructor (required by firebase)
     constructor()
@@ -25,8 +26,13 @@ class modelPdf {
         categoryId: String,
         url: String,
         timestamp: Long,
-        viewsCount: Long,
-        downloadsCount: Long
+        //viewsCount: Long,
+        //downloadsCount: Long,
+        price: String
+
+        //test
+        //test: String
+
     ) {
         this.uid = uid
         this.id = id
@@ -35,8 +41,12 @@ class modelPdf {
         this.categoryId = categoryId
         this.url = url
         this.timestamp = timestamp
-        this.viewsCount = viewsCount
-        this.downloadsCount = downloadsCount
+        //this.viewsCount = viewsCount
+        //this.downloadsCount = downloadsCount
+
+        //test
+        this.price = price
+
     }
 
 
