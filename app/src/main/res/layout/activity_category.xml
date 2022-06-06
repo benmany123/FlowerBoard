@@ -60,7 +60,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/edittext01"
-            android:drawableStart="@drawable/ic_category_grey"
+            android:drawableStart="@drawable/ic_category"
             android:drawablePadding="10dp"
             android:hint="Category Title"
             android:inputType="textPersonName|textCapSentences"

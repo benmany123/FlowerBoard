@@ -68,7 +68,7 @@ class AddPdfActivity : AppCompatActivity() {
         }
 
         //handle click, pick pdf intent
-        binding.PdfAttachButton.setOnClickListener {
+        binding.ImageAttach.setOnClickListener {
             pdfPickIntent()
         }
 
