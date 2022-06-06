@@ -39,7 +39,7 @@ class AdminActivity : AppCompatActivity() {
         loadCategories()
 
         //searach
-        binding.searchEdit.addTextChangedListener(object: TextWatcher{
+        /*binding.searchEdit.addTextChangedListener(object: TextWatcher{
             override fun beforeTextChanged(s: CharSequence?, p1: Int, p2: Int, p3: Int) {
 
             }
@@ -57,7 +57,7 @@ class AdminActivity : AppCompatActivity() {
             override fun afterTextChanged(p0: Editable?) {
 
             }
-        })
+        })*/
 
         //handle click. logout
         binding.logoutButton.setOnClickListener {
