@@ -89,9 +89,9 @@
                     android:textColorHint="@color/grey01" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!--No account Register-->
+            <!--No account Register android:id="@+id/noAccountTv"-->
             <TextView
-                android:id="@+id/noAccountTv"
+                android:id="@+id/signUp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/passwordTil"
@@ -105,7 +105,7 @@
                 android:id="@+id/loginButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/noAccountTv"
+                android:layout_below="@id/signUp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/button01"
                 android:text="Login"

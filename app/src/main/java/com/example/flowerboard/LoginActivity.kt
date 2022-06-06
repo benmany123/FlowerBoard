@@ -35,7 +35,7 @@ class LoginActivity : AppCompatActivity() {
         progressDialog.setCanceledOnTouchOutside(false)
 
         //handle click, not have ac
-        binding.noAccountTv.setOnClickListener {
+        binding.signUp.setOnClickListener {
             startActivity(Intent(this,RegisterActivity::class.java))
         }
 
