@@ -86,13 +86,13 @@ class AdminPdfAdapter :RecyclerView.Adapter<AdminPdfAdapter.AdminPdfHolder>{//, 
     //View Holder class for row_pdf_admin.xml
     inner class AdminPdfHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         //UI Views of row_pdf_admin.xml
-        val pdfView = binding.pdfView
+        val pdfView = binding.ImageView
         val progressBar = binding.progressBar
         val titleTv = binding.titleTv
         val descriptionTv = binding.descriptionTv
         val categoryTv = binding.categoryTv
         //val sizeTv = binding.sizeTv
         val dateTv = binding.dateTv
-        val moreBtn = binding.moreButton
+        //val moreBtn = binding.moreButton
     }
 }

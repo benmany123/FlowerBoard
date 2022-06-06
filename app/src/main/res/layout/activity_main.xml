@@ -9,7 +9,7 @@
     tools:context=".MainActivity">
 
     <ImageView
-        android:id="@+id/iconIv"
+        android:id="@+id/logo"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:layout_centerHorizontal="true"
@@ -19,12 +19,12 @@
         android:id="@+id/text01"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/iconIv"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
+        android:layout_below="@id/logo"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
         android:text="Welcome to our workshop"
         android:textColor="@color/black"
-        android:textSize="28sp"/>
+        android:textSize="28sp" />
 
     <TextView
         android:id="@+id/text02"
@@ -43,8 +43,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/text02"
-        android:background="@drawable/button01"
         android:text="Login / Register"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        android:background="@drawable/button01"/>
 
 </RelativeLayout>

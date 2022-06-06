@@ -19,7 +19,10 @@
             android:id="@+id/admin"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_margin="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
             android:text="Admin:"
             android:textColor="@color/white"
             android:textStyle="bold" />
@@ -29,11 +32,13 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_centerHorizontal="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
             android:layout_margin="10dp"
             android:layout_toRightOf="@id/admin"
             android:text="admin@gmail.com"
             android:textColor="@color/white"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
         <ImageButton
             android:id="@+id/logoutButton"
@@ -42,8 +47,8 @@
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_marginEnd="10dp"
-            android:background="@android:color/transparent"
-            android:src="@drawable/ic_logout" />
+            android:src="@drawable/ic_logout"
+            android:background="@android:color/transparent" />
 
     </RelativeLayout>
 

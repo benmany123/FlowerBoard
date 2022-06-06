@@ -164,13 +164,13 @@ class UserActivity : AppCompatActivity() {
         val firebaseUser = firebaseAuth.currentUser
         if(firebaseUser == null){
             //not logged in, user can stay in user page withoout login
-            binding.subTitleTv.text= "Not Logged In"
+            binding.userEmail.text= "Not Logged In"
         }
         else{
             //logged in, get and show user info
             val email =firebaseUser.email
             //set to textview of toolbar
-            binding.subTitleTv.text=email
+            binding.userEmail.text=email
         }
     }
 }

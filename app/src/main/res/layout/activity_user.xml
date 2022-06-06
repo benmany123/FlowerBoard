@@ -9,38 +9,45 @@
     
     <!--toolbar-->
     <RelativeLayout
-        android:id="@+id/toolbarRl"
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="?actionBarSize"
+        android:layout_height="40dp"
         android:background="@drawable/toolbar02">
 
+        <!--User information-->
         <TextView
-            android:id="@+id/titleTv"
+            android:id="@+id/user"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_centerHorizontal="true"
-            android:text="User"
-            android:textStyle="bold"
-            android:textColor="@color/white"/>
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="User:"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/subTitleTv"
+            android:id="@+id/userEmail"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_centerHorizontal="true"
-            android:layout_below="@+id/titleTv"
-            android:text="abc@example.com"
-            android:textColor="@color/white"/>
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_margin="10dp"
+            android:layout_toRightOf="@+id/user"
+            android:text="user@gmail.com"
+            android:textColor="@color/white" />
 
         <ImageButton
             android:id="@+id/logoutButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_marginEnd="10dp"
-            android:src="@drawable/ic_logout_white"
-            android:layout_alignParentEnd="true"
+            android:src="@drawable/ic_logout"
             android:background="@android:color/transparent"/>
 
     </RelativeLayout>
@@ -50,19 +57,20 @@
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_margin="10dp"
         android:background="@android:color/transparent"
-        android:layout_margin="5dp"
-        app:tabIndicatorFullWidth="false"
         app:tabBackground="@drawable/selected_tab"
-        app:tabIndicatorHeight="0dp"
-        android:layout_below="@id/toolbarRl"
-        app:tabMode="scrollable"/>
+        app:tabIndicatorFullWidth="false"
+        app:tabMode="scrollable" />
 
     <!--View Pager: Show categorized products in fragment-->
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tabLayout"/>
+        android:layout_below="@id/tabLayout" />
 
 </RelativeLayout>
