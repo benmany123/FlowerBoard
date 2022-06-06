@@ -53,7 +53,7 @@ class AdapterCat : RecyclerView.Adapter<AdapterCat.HolderCategory>, Filterable{
             //confirm before delete
             val builder = AlertDialog.Builder(context)
             builder.setTitle("Delete")
-                .setMessage("Are you sure wnat to delete this category?")
+                .setMessage("Are you sure want to delete this category?")
                 .setPositiveButton("Confirm"){a, d->
                     Toast.makeText(context, "Deleting...", Toast.LENGTH_SHORT).show()
                     deleteCat(model, holder)
