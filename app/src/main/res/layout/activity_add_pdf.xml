@@ -18,7 +18,7 @@
             android:id="@+id/backButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="25dp"
+            android:layout_margin="15dp"
             android:src="@drawable/ic_back_black"
             android:background="@android:color/transparent" />
 
@@ -26,7 +26,7 @@
         <ImageView
             android:id="@+id/pic01"
             android:layout_width="match_parent"
-            android:layout_height="170dp"
+            android:layout_height="211dp"
             android:layout_below="@id/backButton"
             android:src="@drawable/pic01" />
 
@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/pic01"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:fontFamily="sans-serif-condensed-medium"
             android:text="Add a New Product"
             android:textColor="@color/black"
@@ -50,19 +50,17 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="25dp"
-            android:layout_marginTop="25dp"
             android:layout_marginEnd="25dp"
-            android:layout_marginBottom="25dp"
-            android:background="@android:color/transparent"
-            android:padding="5dp"
-            android:src="@drawable/ic_image" />
+            android:layout_margin="15dp"
+            android:src="@drawable/ic_image"
+            android:background="@android:color/transparent" />
     </RelativeLayout>
 
     <!--Input Title -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="300dp">
+        android:layout_marginTop="310dp">
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/titleTIL"
@@ -109,7 +107,7 @@
                 android:drawableStart="@drawable/ic_details"
                 android:drawablePadding="12dp"
                 android:padding="12dp"
-                android:hint="Product description"
+                android:hint="Product Description"
                 android:inputType="textCapSentences|textMultiLine"
                 android:textSize="16sp"
                 android:textColor="@color/black"
@@ -127,13 +125,13 @@
             android:layout_marginTop="5dp"
             android:layout_marginEnd="30dp"
             android:layout_marginBottom="12dp"
-            android:padding="12dp"
-            android:drawablePadding="12dp"
             android:background="@drawable/edittext01"
             android:drawableStart="@drawable/ic_category"
             android:drawableEnd="@drawable/ic_dropdown"
+            android:drawablePadding="12dp"
             android:gravity="center_vertical"
             android:hint="Flower Board Category"
+            android:padding="12dp"
             android:textColor="@color/black"
             android:textColorHint="@color/grey01"
             android:textSize="16sp" />
@@ -145,11 +143,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/categoryTv"
-            android:background="@drawable/button01"
             android:layout_marginStart="30dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="30dp"
-            android:text="Upload Product"
+            android:background="@drawable/button01"
+            android:text="Add a new Product"
             android:textColor="@color/white" />
     </RelativeLayout>
 
