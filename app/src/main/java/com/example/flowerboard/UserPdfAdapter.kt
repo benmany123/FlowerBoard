@@ -51,35 +51,25 @@ class UserPdfAdapter : RecyclerView.Adapter<UserPdfAdapter.HolderPdfUser> {
         holder.descriptionTv.text = description
         holder.dateTv.text = date
 
-        MyApplication.loadPdf(url, title, holder.pdfView, holder.progressBar, null)
+        MyApplication.loadPdf(url, title, holder.imageView, holder.progressBar, null)
 
         MyApplication.loadCategory(categoryId, holder.categoryTv)
 
-        //MyApplication.loadPdfSize(url,title, holder.sizeTv)
-
-        //handle click, open pdf details page
-        /*holder.itemView.setOnClickListener {
-            //pass product id in intent, that will be used to get pdf info
-            val intent = Intent(context, PdfDetailActivity::class.java)
-            intent.putExtra("productId", productId)
-            context.startActivity(intent)
-        }*/
     }
 
     override fun getItemCount(): Int {
-        return pdfArrayList.size // return list size/ number of records
+        return pdfArrayList.size // return number of records
     }
 
 
     //View holder class row_pdf_user.xml
     inner class HolderPdfUser(itemView: View): RecyclerView.ViewHolder(itemView){
         //init UI components of row_pdf_user.xml
-        var pdfView = binding.pdfView
+        var imageView = binding.imageView
         var progressBar = binding.progressBar
         var titleTv = binding.titleTv
         var descriptionTv = binding.descriptionTv
         var categoryTv = binding.categoryTv
-        var sizeTv = binding.sizeTv
         var dateTv = binding.dateTv
     }
 
