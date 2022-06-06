@@ -37,13 +37,13 @@
         <!--TexView: Product Title-->
         <TextView
             android:id="@+id/titleTv"
+            style="@style/TextAppearance.MaterialComponents.Headline6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Product Title"
-            style="@style/TextAppearance.MaterialComponents.Headline6"
             android:layout_toEndOf="@id/pdfRl"
             android:ellipsize="end"
-            android:maxLines="1"/>
+            android:maxLines="1"
+            android:text="Product Title" />
 
         <!--TexView: Product Description-->
         <TextView
@@ -51,12 +51,12 @@
             style="@style/TextAppearance.MaterialComponents.Body2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Product description"
-            android:layout_toEndOf="@id/pdfRl"
             android:layout_below="@id/titleTv"
-            android:maxLines="4"
             android:layout_marginTop="8dp"
-            android:ellipsize="end"/>
+            android:layout_toEndOf="@id/pdfRl"
+            android:ellipsize="end"
+            android:maxLines="3"
+            android:text="The Description of the flower board" />
 
         <!--TexView: Product Category-->
         <TextView
@@ -69,28 +69,17 @@
             android:layout_alignParentBottom="true"
             android:maxLines="1"/>
 
-        <!--TexView: Product Size-->
-        <TextView
-            android:id="@+id/sizeTv"
-            style="@style/TextAppearance.MaterialComponents.Caption"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="14 MB"
-            android:layout_toEndOf="@id/pdfRl"
-            android:maxLines="1"
-            android:layout_alignParentBottom="true"/>
-
         <!--TexView: Product Added date-->
         <TextView
             android:id="@+id/dateTv"
             style="@style/TextAppearance.MaterialComponents.Caption"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/sizeTv"
-            android:layout_toStartOf="@id/categoryTv"
-            android:text="dd/mm/yyyy"
             android:layout_alignParentBottom="true"
-            android:textAlignment="center"/>
+            android:layout_marginRight="50dp"
+            android:layout_toLeftOf="@id/categoryTv"
+            android:text="dd/mm/yyyy"
+            android:textAlignment="center" />
 
     </RelativeLayout>
 

@@ -40,8 +40,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_toEndOf="@+id/Image"
-            android:maxLines="1"
             android:ellipsize="end"
+            android:maxLines="1"
             android:text="The Product Title" />
 
         <!--Description-->
@@ -52,10 +52,10 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/titleTv"
             android:layout_marginTop="8dp"
-            android:ellipsize="end"
             android:layout_toEndOf="@+id/Image"
+            android:ellipsize="end"
             android:maxLines="3"
-            android:text="The Description of the flower board"/>
+            android:text="The Description of the flower board" />
 
         <!--Category-->
         <TextView
@@ -85,11 +85,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_toStartOf="@+id/categoryTv"
             android:layout_marginRight="50dp"
+            android:layout_toStartOf="@+id/categoryTv"
             android:maxLines="1"
             android:text="dd/MM/YYYY"
-            android:textAlignment="center"/>
+            android:textAlignment="center" />
 
         <!--Show more options-->
         <!--<ImageButton
