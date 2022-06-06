@@ -11,16 +11,13 @@
     <RelativeLayout
         android:id="@+id/toolbarRl"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:background="@drawable/toolbar01">
+        android:layout_height="250dp">
 
         <ImageView
             android:id="@+id/iconIv"
-            android:layout_width="110dp"
-            android:layout_height="110dp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="70dp"
-            android:src="@drawable/logo"/>
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@drawable/logo" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -28,23 +25,20 @@
             android:layout_below="@id/iconIv"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
-            android:text="Please Login"
-            android:textColor="@color/white"
             android:fontFamily="sans-serif-condensed-medium"
-            android:textSize="28sp"/>
+            android:text="Please Login"
+            android:textColor="@color/black"
+            android:textSize="28sp" />
 
     </RelativeLayout>
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="225dp"
-        android:layout_marginEnd="30dp">
+
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_below="@id/toolbarRl"
+            android:layout_marginTop="50dp">
 
             <!--Email-->
             <com.google.android.material.textfield.TextInputLayout
@@ -57,12 +51,13 @@
                     android:id="@+id/emailEt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="30dp"
                     android:background="@drawable/edittext01"
                     android:drawableStart="@drawable/ic_email_grey"
-                    android:drawablePadding="10dp"
+                    android:drawablePadding="15dp"
                     android:hint="Email"
                     android:inputType="textEmailAddress"
-                    android:padding="10dp"
+                    android:padding="15dp"
                     android:textColor="@color/black"
                     android:textColorHint="@color/grey01"
                     tools:ignore="TouchTargetSizeCheck" />
@@ -85,51 +80,36 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/edittext01"
                     android:drawableStart="@drawable/ic_lock_grey"
-                    android:drawablePadding="50dp"
+                    android:drawablePadding="15dp"
                     android:hint="Password"
                     android:inputType="textPassword"
-                    android:padding="10dp"
+                    android:padding="15dp"
                     android:textColor="@color/black"
                     android:textColorHint="@color/grey01" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!--Forgot password-->
-
+            <!--No account Register-->
             <TextView
-                android:id="@+id/forgotTv"
+                android:id="@+id/noAccountTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/passwordTil"
                 android:layout_alignParentEnd="true"
-                android:layout_marginTop="5dp"
-                android:padding="5dp"
-                android:text="Forgot Password?"
-                android:textColor="@color/grey02" />
+                android:padding="10dp"
+                android:text="@string/signup"
+                android:textSize="17dp" />
 
             <!--Login button-->
             <Button
                 android:id="@+id/loginButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/forgotTv"
+                android:layout_below="@id/noAccountTv"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/button01"
                 android:text="Login"
                 android:textColor="@color/white" />
 
         </RelativeLayout>
-
-    </ScrollView>
-
-
-    <!--No account Register-->
-    <TextView
-        android:id="@+id/noAccountTv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:padding="10dp"
-        android:text="@string/signup"/>
 
 </RelativeLayout>
