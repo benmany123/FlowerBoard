@@ -9,7 +9,7 @@
 
     <!--Toolbar-->
     <RelativeLayout
-        android:id="@+id/toolbarRl"
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="250dp">
 
@@ -38,7 +38,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/toolbarRl"
+            android:layout_below="@id/toolbar"
             android:layout_marginTop="50dp">
 
             <!--Email-->
@@ -54,7 +54,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="30dp"
                     android:background="@drawable/edittext01"
-                    android:drawableStart="@drawable/ic_email_grey"
+                    android:drawableStart="@drawable/ic_email"
                     android:drawablePadding="15dp"
                     android:hint="Email"
                     android:inputType="textEmailAddress"
@@ -80,7 +80,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/edittext01"
-                    android:drawableStart="@drawable/ic_lock_grey"
+                    android:drawableStart="@drawable/ic_password"
                     android:drawablePadding="15dp"
                     android:hint="Password"
                     android:inputType="textPassword"

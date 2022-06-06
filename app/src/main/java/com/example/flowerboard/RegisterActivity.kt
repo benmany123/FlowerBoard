@@ -58,10 +58,10 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun validateData() {
         //1. Input data
-        name = binding.nameEt.text.toString().trim()
+        name = binding.nameEdit.text.toString().trim()
         email = binding.emailEt.text.toString().trim()
-        password = binding.passwordEt.text.toString().trim()
-        val cPassword = binding.cpasswordEt.text.toString().trim()
+        password = binding.passwordEdit.text.toString().trim()
+        val cPassword = binding.confirmPasswordEt.text.toString().trim()
 
         //2. Validate data
         if(name.isEmpty()){
