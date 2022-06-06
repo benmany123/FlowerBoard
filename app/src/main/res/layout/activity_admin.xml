@@ -14,6 +14,7 @@
         android:layout_height="40dp"
         android:background="@drawable/toolbar02">
 
+        <!--Admin information-->
         <TextView
             android:id="@+id/admin"
             android:layout_width="wrap_content"
@@ -67,6 +68,7 @@
             android:text="Add Category"
             android:textColor="@color/white"/>
 
+        <!--Add Product-->
         <Button
             android:id="@+id/addProductButton"
             android:layout_width="wrap_content"
@@ -78,7 +80,7 @@
 
     </LinearLayout>
 
-    <!--Categories-->
+    <!--Categories List-->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/categoriesRv"
         android:layout_width="match_parent"
