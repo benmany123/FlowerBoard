@@ -81,15 +81,26 @@
             android:textAlignment="center" />
 
         <!--Product Update Date-->
+
         <TextView
-            android:id="@+id/textTv"
+            android:id="@+id/priceTv"
             style="@style/TextAppearance.MaterialComponents.Caption"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_marginRight="50dp"
             android:layout_toLeftOf="@id/dateTv"
-            android:text="11"
+            android:text="$0"
+            android:textAlignment="center" />
+        <TextView
+            android:id="@+id/dollarTv"
+            style="@style/TextAppearance.MaterialComponents.Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="2dp"
+            android:layout_toLeftOf="@id/priceTv"
+            android:text="$"
             android:textAlignment="center" />
 
     </RelativeLayout>
