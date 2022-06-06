@@ -71,7 +71,7 @@ class AdminActivity : AppCompatActivity() {
         }
 
         //handle click, start add pdf page
-        binding.addPdfFab.setOnClickListener {
+        binding.addProductButton.setOnClickListener {
             startActivity(Intent(this, AddPdfActivity::class.java))
         }
 
@@ -119,7 +119,7 @@ class AdminActivity : AppCompatActivity() {
             //logged in, get and show user info
             val email =firebaseUser.email
             //set to textview of toolbar
-            binding.subTitleTv.text=email
+            binding.adminEmail.text=email
         }
     }
 }
