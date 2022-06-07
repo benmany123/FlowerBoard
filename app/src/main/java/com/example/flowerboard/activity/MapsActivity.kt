@@ -98,7 +98,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
                     placeMarkerShop(shop5)
                     placeMarkerShop(shop6)
                 }
-
             }
 
     }
