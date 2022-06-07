@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/back01"
-    android:padding="40dp"
+    android:padding="25dp"
     tools:context=".activity.MainActivity">
 
     <ImageView
@@ -24,27 +24,49 @@
         android:layout_marginEnd="30dp"
         android:text="Welcome to our workshop"
         android:textColor="@color/black"
-        android:textSize="28sp" />
+        android:textSize="24sp" />
 
     <TextView
         android:id="@+id/text02"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/text01"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="20dp"
+        android:layout_margin="10dp"
         android:text="Most of people think the traditional flower board is very expensive. In fact, it can be more popular.
         \n\nIn this app, we would like to promote our products and make more people to recognize this Hong Kong traditional cultures."
         android:textColor="@color/black"
         android:textSize="20sp" />
 
-    <Button
+    <!--<Button
         android:id="@+id/loginButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/text02"
+        android:background="@drawable/button01"
         android:text="Login / Register"
-        android:textColor="@color/white"
-        android:background="@drawable/button01"/>
+        android:textColor="@color/white" />-->
+
+    <Button
+        android:id="@+id/finger"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text02"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/button01"
+        android:text="Login / Register (Need Auth)"
+        android:textColor="@color/white" />
+
+    <!--Map button-->
+    <Button
+        android:id="@+id/mapButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/finger"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/button01"
+        android:text="View Nearst SHOP on Map"
+        android:textColor="@color/white" />
+
+
 
 </RelativeLayout>

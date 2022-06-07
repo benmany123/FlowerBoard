@@ -14,7 +14,7 @@ import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.contract.ActivityResultContracts
-import com.bumptech.glide.Glide
+//import com.bumptech.glide.Glide
 import com.example.flowerboard.MyApplication
 import com.example.flowerboard.R
 import com.example.flowerboard.databinding.ActivityAccountEditBinding
@@ -171,7 +171,7 @@ class AccountEditActivity : AppCompatActivity() {
 
                     //set image
                     //add glide library to show image from firebase
-                    try{
+                    /*try{
                         Glide.with(this@AccountEditActivity)
                             .load(profileImage)
                             .placeholder(R.drawable.ic_person2)
@@ -180,7 +180,7 @@ class AccountEditActivity : AppCompatActivity() {
                     catch (e: Exception){
 
 
-                    }
+                    }*/
 
 
                 }

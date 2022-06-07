@@ -51,9 +51,6 @@ class LoginActivity : AppCompatActivity() {
             validateData()
         }
 
-        binding.mapButton.setOnClickListener {
-            startActivity(Intent(this,MapsActivity::class.java))
-        }
 
     }
 

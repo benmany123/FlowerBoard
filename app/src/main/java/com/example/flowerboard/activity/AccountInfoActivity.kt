@@ -3,7 +3,7 @@ package com.example.flowerboard.activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.bumptech.glide.Glide
+//import com.bumptech.glide.Glide
 import com.example.flowerboard.MyApplication
 import com.example.flowerboard.R
 import com.example.flowerboard.databinding.ActivityAccountInfoBinding
@@ -28,7 +28,7 @@ class AccountInfoActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         firebaseAuth =FirebaseAuth.getInstance()
-        loadAccountInfo()
+        //loadAccountInfo()
 
         //handle click, go back
         binding.backButton.setOnClickListener {
@@ -41,7 +41,7 @@ class AccountInfoActivity : AppCompatActivity() {
         }
     }
 
-    private fun loadAccountInfo() {
+    /*private fun loadAccountInfo() {
         //db reference to load account info
         val ref = FirebaseDatabase.getInstance().getReference("")
         ref.child(firebaseAuth.uid!!)
@@ -66,14 +66,14 @@ class AccountInfoActivity : AppCompatActivity() {
 
                     //set image
                     //add glide library to show image from firebase
-                    try{
+                    /*try{
                         Glide.with(this@AccountInfoActivity)
                             .load(profileImage)
                             .placeholder(R.drawable.ic_person2)
                             .into(binding.accountIv)
                     }
                     catch (e:Exception){
-
+*/
 
                     }
 
@@ -84,5 +84,5 @@ class AccountInfoActivity : AppCompatActivity() {
                     TODO("Not yet implemented")
                 }
             })
-    }
+    }*/
 }
