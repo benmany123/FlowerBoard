@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.flowerboard.MyApplication
-import com.example.flowerboard.databinding.RowPdfUserBinding
+import com.example.flowerboard.databinding.RowProductAdminBinding
 import com.example.flowerboard.model.modelPdf
 
 class UserPdfAdapter : RecyclerView.Adapter<UserPdfAdapter.HolderPdfUser> {
@@ -16,7 +16,7 @@ class UserPdfAdapter : RecyclerView.Adapter<UserPdfAdapter.HolderPdfUser> {
     //arraylist to hold pdfs, get user constructor
     private var pdfArrayList: ArrayList<modelPdf>//to access in filter class, make public
     //view binding row_pdf_user.xml => RowPdfUserBinding
-    private lateinit var binding: RowPdfUserBinding
+    private lateinit var binding: RowProductAdminBinding
 
     constructor(context: Context, pdfArrayList: ArrayList<modelPdf>) {
         this.context = context
@@ -26,7 +26,7 @@ class UserPdfAdapter : RecyclerView.Adapter<UserPdfAdapter.HolderPdfUser> {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HolderPdfUser {
         //inflate/bind layout row_pdf_user.xml
-        binding = RowPdfUserBinding.inflate(LayoutInflater.from(context), parent, false)
+        binding = RowProductAdminBinding.inflate(LayoutInflater.from(context), parent, false)
 
         return HolderPdfUser(binding.root)
     }
@@ -66,7 +66,7 @@ class UserPdfAdapter : RecyclerView.Adapter<UserPdfAdapter.HolderPdfUser> {
     //View holder class row_pdf_user.xml
     inner class HolderPdfUser(itemView: View): RecyclerView.ViewHolder(itemView){
         //init UI components of row_pdf_user.xml
-        var imageView = binding.imageView
+        var imageView = binding.ImageView
         var progressBar = binding.progressBar
         var titleTv = binding.titleTv
         var descriptionTv = binding.descriptionTv

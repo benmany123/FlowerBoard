@@ -36,7 +36,6 @@ class UserActivity : AppCompatActivity() {
 
         //init firebase auth
         firebaseAuth = FirebaseAuth.getInstance()
-        //checkUser()
 
         setupPagerAdapter(binding.viewPager)
         binding.tabLayout.setupWithViewPager(binding.viewPager)
@@ -144,28 +143,4 @@ class UserActivity : AppCompatActivity() {
         }
 
     }
-
-    /*private fun checkUser() {
-        //get current user
-        val firebaseUser = firebaseAuth.currentUser
-        if(firebaseUser == null){
-            //not logged in, user can stay in user page without login
-            binding.userEmail.text= "Not Logged In"
-
-            //hide user information, logout
-            binding.infoButton.visibility = View.GONE
-            binding.logoutButton.visibility = View.GONE
-        }
-        else{
-            //logged in, get and show user info
-            val email =firebaseUser.email
-            //set to textview of toolbar
-            binding.userEmail.text=email
-
-            //show account information, logout
-            binding.infoButton.visibility = View.VISIBLE
-            binding.logoutButton.visibility = View.VISIBLE
-
-        }
-    }*/
 }

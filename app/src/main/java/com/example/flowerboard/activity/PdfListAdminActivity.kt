@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.example.flowerboard.adapter.AdminPdfAdapter
-import com.example.flowerboard.databinding.ActivityPdfListAdminBinding
+import com.example.flowerboard.databinding.ActivityProductListAdminBinding
 import com.example.flowerboard.model.modelPdf
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -14,7 +14,7 @@ import com.google.firebase.database.ValueEventListener
 class PdfListAdminActivity : AppCompatActivity() {
 
     //view binding
-    private lateinit var binding: ActivityPdfListAdminBinding
+    private lateinit var binding: ActivityProductListAdminBinding
 
     private companion object{
         const val TAG = "PDF_LIST_ADMIN_TAG"
@@ -31,7 +31,7 @@ class PdfListAdminActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityPdfListAdminBinding.inflate(layoutInflater)
+        binding = ActivityProductListAdminBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         //get from intent, that we passed from adapter

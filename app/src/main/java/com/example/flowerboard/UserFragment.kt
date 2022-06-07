@@ -69,23 +69,11 @@ class UserFragment : Fragment {
             //load all products
             loadAll()
         }
-        /*else if (category == "Most Viewed"){
-            //load most viewed products
-            //loadMost("viewsCount")
-        }
-        else if (category == "Most Downloaded"){
-            //load most downloaded products
-            //loadMost("downloadsCount")
-        }*/
         else{
             //load selected category products
             loadSelected()
         }
 
-
-        //search
-        //binding.searchEt.addTextChangedListener{object:T}
-        
         return binding.root
     }
 
@@ -115,11 +103,6 @@ class UserFragment : Fragment {
         })
     }
 
-    /*private fun loadMost(query: String) {
-
-    }*/
-
-
     private fun loadSelected() {
         //init list
         pdfArrayList = ArrayList()
@@ -140,7 +123,6 @@ class UserFragment : Fragment {
                 //set adapter to recycle view
                 binding.productsRv.adapter = adapterPdfUser
             }
-
             override fun onCancelled(error: DatabaseError) {
                 //
             }

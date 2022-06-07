@@ -1,7 +1,6 @@
 package com.example.flowerboard
 
 import android.app.Application
-import android.net.Uri
 import android.text.format.DateFormat
 import android.util.Log
 import android.view.View
@@ -13,7 +12,6 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
-import org.w3c.dom.Text
 import java.util.*
 
 class MyApplication:Application() {
@@ -44,7 +42,7 @@ class MyApplication:Application() {
             ref.getBytes(Constants.Max_BYTES_PDF)
                 .addOnSuccessListener {bytes->
 
-                    Log.d(TAG, "loadPdfSize: Size Bytes $bytes")
+                    //Log.d(TAG, "loadPdfSize: Size Bytes $bytes")
 
                     //Set to pdfview
                     pdfView.fromBytes(bytes)

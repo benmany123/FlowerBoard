@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.flowerboard.MyApplication
-import com.example.flowerboard.databinding.RowPdfAdminBinding
+import com.example.flowerboard.databinding.RowProductAdminBinding
 import com.example.flowerboard.model.modelPdf
 
 class AdminPdfAdapter :RecyclerView.Adapter<AdminPdfAdapter.AdminPdfHolder>{//, Filterable{
@@ -18,10 +18,7 @@ class AdminPdfAdapter :RecyclerView.Adapter<AdminPdfAdapter.AdminPdfHolder>{//, 
     private val filterList: ArrayList<modelPdf>
 
     //view binding
-    private lateinit var binding: RowPdfAdminBinding
-
-    //filter object
-    //var filter: AdminFilterPdf? = null
+    private lateinit var binding: RowProductAdminBinding
 
     //constructor
     constructor(context: Context, pdfArrayList: ArrayList<modelPdf>) : super() {
@@ -33,7 +30,7 @@ class AdminPdfAdapter :RecyclerView.Adapter<AdminPdfAdapter.AdminPdfHolder>{//, 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdminPdfHolder {
         //bind/inflate layout row_pdf_admin.xml
-        binding = RowPdfAdminBinding.inflate(LayoutInflater.from(context),parent, false)
+        binding = RowProductAdminBinding.inflate(LayoutInflater.from(context),parent, false)
 
         return AdminPdfHolder(binding.root)
     }
@@ -43,7 +40,6 @@ class AdminPdfAdapter :RecyclerView.Adapter<AdminPdfAdapter.AdminPdfHolder>{//, 
 
         //get data
         val model = pdfArrayList[position]
-        //val pdfId = model.id
         val categoryId = model.categoryId
         val title = model.title
         val description = model.description
