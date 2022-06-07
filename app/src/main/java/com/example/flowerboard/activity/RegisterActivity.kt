@@ -1,4 +1,4 @@
-package com.example.flowerboard
+package com.example.flowerboard.activity
 
 import android.app.ProgressDialog
 import android.content.Intent
@@ -9,7 +9,6 @@ import android.widget.Toast
 import com.example.flowerboard.databinding.ActivityRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.ktx.Firebase
 
 class RegisterActivity : AppCompatActivity() {
 

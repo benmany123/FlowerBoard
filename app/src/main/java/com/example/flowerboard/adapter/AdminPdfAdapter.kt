@@ -1,13 +1,13 @@
-package com.example.flowerboard
+package com.example.flowerboard.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Filter
-import android.widget.Filterable
 import androidx.recyclerview.widget.RecyclerView
+import com.example.flowerboard.MyApplication
 import com.example.flowerboard.databinding.RowPdfAdminBinding
+import com.example.flowerboard.model.modelPdf
 
 class AdminPdfAdapter :RecyclerView.Adapter<AdminPdfAdapter.AdminPdfHolder>{//, Filterable{
 
@@ -43,12 +43,13 @@ class AdminPdfAdapter :RecyclerView.Adapter<AdminPdfAdapter.AdminPdfHolder>{//, 
 
         //get data
         val model = pdfArrayList[position]
-        val pdfId = model.id
+        //val pdfId = model.id
         val categoryId = model.categoryId
         val title = model.title
         val description = model.description
         val pdfUrl = model.url
         val timestamp = model.timestamp
+        val price = model.price
         //convert timestamp to dd/mm/yy format
         val formattedDate = MyApplication.formatTimeStamp(timestamp)
 
@@ -56,6 +57,7 @@ class AdminPdfAdapter :RecyclerView.Adapter<AdminPdfAdapter.AdminPdfHolder>{//, 
         holder.titleTv.text = title
         holder.descriptionTv.text = description
         holder.dateTv.text = formattedDate
+        holder.priceTv.text = price
 
         //load further details like category, pdf from url, pdf size
 
@@ -78,8 +80,7 @@ class AdminPdfAdapter :RecyclerView.Adapter<AdminPdfAdapter.AdminPdfHolder>{//, 
         val titleTv = binding.titleTv
         val descriptionTv = binding.descriptionTv
         val categoryTv = binding.categoryTv
-        //val sizeTv = binding.sizeTv
         val dateTv = binding.dateTv
-        //val moreBtn = binding.moreButton
+        var priceTv = binding.priceTv
     }
 }

@@ -6,7 +6,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.flowerboard.adapter.UserPdfAdapter
 import com.example.flowerboard.databinding.FragmentUserBinding
+import com.example.flowerboard.model.modelPdf
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase

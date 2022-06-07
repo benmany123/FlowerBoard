@@ -1,18 +1,16 @@
-package com.example.flowerboard
+package com.example.flowerboard.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
+import com.example.flowerboard.adapter.AdapterCat
 import com.example.flowerboard.databinding.ActivityAdminBinding
-import com.example.flowerboard.databinding.ActivityLoginBinding
+import com.example.flowerboard.model.modelCat
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import java.lang.Exception
 
 class AdminActivity : AppCompatActivity() {
 

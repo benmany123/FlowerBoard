@@ -1,6 +1,8 @@
 package com.example.flowerboard
 
 import android.widget.Filter
+import com.example.flowerboard.adapter.AdapterCat
+import com.example.flowerboard.model.modelCat
 
 class FilterCat: Filter {
 
@@ -49,7 +51,7 @@ class FilterCat: Filter {
 
     override fun publishResults(constraint: CharSequence?, results: FilterResults) {
         // apply filter changes
-        adapterCat.categoryArrayList = results.values as ArrayList<modelCat> /* = java.util.ArrayList<com.example.flowerboard.modelCat> */
+        adapterCat.categoryArrayList = results.values as ArrayList<modelCat> /* = java.util.ArrayList<com.example.flowerboard.model.modelCat> */
 
         // notify changes
         adapterCat.notifyDataSetChanged()

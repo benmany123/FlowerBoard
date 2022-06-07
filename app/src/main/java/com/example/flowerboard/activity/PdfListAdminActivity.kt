@@ -1,16 +1,15 @@
-package com.example.flowerboard
+package com.example.flowerboard.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.util.Log
+import com.example.flowerboard.adapter.AdminPdfAdapter
 import com.example.flowerboard.databinding.ActivityPdfListAdminBinding
+import com.example.flowerboard.model.modelPdf
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import java.lang.Exception
 
 class PdfListAdminActivity : AppCompatActivity() {
 

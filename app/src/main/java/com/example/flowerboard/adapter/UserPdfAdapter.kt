@@ -1,12 +1,13 @@
-package com.example.flowerboard
+package com.example.flowerboard.adapter
 
 import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.flowerboard.MyApplication
 import com.example.flowerboard.databinding.RowPdfUserBinding
+import com.example.flowerboard.model.modelPdf
 
 class UserPdfAdapter : RecyclerView.Adapter<UserPdfAdapter.HolderPdfUser> {
 

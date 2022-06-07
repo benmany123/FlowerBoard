@@ -12,28 +12,28 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FlowerBoard">
         <activity
-            android:name=".PdfListAdminActivity"
+            android:name=".activity.PdfListAdminActivity"
             android:exported="false" />
         <activity
-            android:name=".AddPdfActivity"
+            android:name=".activity.AddPdfActivity"
             android:exported="false" />
         <activity
-            android:name=".CategoryActivity"
+            android:name=".activity.CategoryActivity"
             android:exported="false" />
         <activity
-            android:name=".AdminActivity"
+            android:name=".activity.AdminActivity"
             android:exported="false" />
         <activity
-            android:name=".UserActivity"
+            android:name=".activity.UserActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".activity.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".RegisterActivity"
+            android:name=".activity.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".SplashActivity"
+            android:name=".activity.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -41,7 +41,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name=".activity.MainActivity" />
     </application>
 
 </manifest>

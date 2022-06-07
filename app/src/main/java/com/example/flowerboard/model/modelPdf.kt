@@ -1,4 +1,4 @@
-package com.example.flowerboard
+package com.example.flowerboard.model
 
 class modelPdf {
 

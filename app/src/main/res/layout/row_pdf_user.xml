@@ -16,7 +16,7 @@
         <!--To show product image-->
         <RelativeLayout
             android:id="@+id/imageRL"
-            android:layout_width="100dp"
+            android:layout_width="140dp"
             android:layout_height="140dp"
             android:background="@color/grey02"
             android:layout_marginEnd="5dp">
@@ -29,7 +29,7 @@
             <ProgressBar
                 android:id="@+id/progressBar"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent" />
 
         </RelativeLayout>
 
@@ -60,13 +60,13 @@
         <!--Product Category-->
         <TextView
             android:id="@+id/categoryTv"
+            style="@style/TextAppearance.MaterialComponents.Caption"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/TextAppearance.MaterialComponents.Caption"
-            android:text="Category"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:maxLines="1"/>
+            android:maxLines="1"
+            android:text="Category" />
 
         <!--Product Update Date-->
         <TextView
@@ -75,7 +75,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_marginRight="50dp"
+            android:layout_marginRight="20dp"
             android:layout_toLeftOf="@id/categoryTv"
             android:text="dd/mm/yyyy"
             android:textAlignment="center" />
@@ -88,10 +88,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_marginRight="50dp"
+            android:layout_marginRight="20dp"
             android:layout_toLeftOf="@id/dateTv"
-            android:text="$0"
+            android:text="0"
             android:textAlignment="center" />
+
         <TextView
             android:id="@+id/dollarTv"
             style="@style/TextAppearance.MaterialComponents.Caption"

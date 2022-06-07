@@ -1,4 +1,4 @@
-package com.example.flowerboard
+package com.example.flowerboard.adapter
 
 import android.app.AlertDialog
 import android.content.Context
@@ -8,7 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
+import com.example.flowerboard.FilterCat
+import com.example.flowerboard.activity.PdfListAdminActivity
 import com.example.flowerboard.databinding.RowCategoryBinding
+import com.example.flowerboard.model.modelCat
 import com.google.firebase.database.FirebaseDatabase
 
 class AdapterCat : RecyclerView.Adapter<AdapterCat.HolderCategory>, Filterable{

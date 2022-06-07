@@ -29,7 +29,7 @@
             <ProgressBar
                 android:id="@+id/progressBar"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent" />
 
         </RelativeLayout>
 
@@ -68,16 +68,6 @@
             android:maxLines="1"
             android:text="Category" />
 
-        <!--Size
-        <TextView
-            android:id="@+id/sizeTv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_toEndOf="@+id/pdfRow1"
-            android:maxLines="1"
-            android:text="13MB" />-->
-
         <!--Date android:layout_toEndOf="@id/sizeTv"-->
         <TextView
             android:id="@+id/dateTv"
@@ -85,21 +75,33 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_marginRight="50dp"
+            android:layout_marginRight="20dp"
             android:layout_toStartOf="@+id/categoryTv"
             android:maxLines="1"
             android:text="dd/MM/YYYY"
             android:textAlignment="center" />
 
-        <!--Show more options-->
-        <!--<ImageButton
-            android:id="@+id/moreButton"
+        <TextView
+            android:id="@+id/priceTv"
+            style="@style/TextAppearance.MaterialComponents.Caption"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:background="@android:color/transparent"
-            android:padding="5dp"
-            android:src="@drawable/ic_more_black" />-->
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="20dp"
+            android:layout_toLeftOf="@id/dateTv"
+            android:text="0"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/dollarTv"
+            style="@style/TextAppearance.MaterialComponents.Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="2dp"
+            android:layout_toLeftOf="@id/priceTv"
+            android:text="$"
+            android:textAlignment="center" />
 
     </RelativeLayout>
 

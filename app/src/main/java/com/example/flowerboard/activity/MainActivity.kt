@@ -1,4 +1,4 @@
-package com.example.flowerboard
+package com.example.flowerboard.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity

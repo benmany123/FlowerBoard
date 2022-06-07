@@ -1,4 +1,4 @@
-package com.example.flowerboard
+package com.example.flowerboard.activity
 
 import android.content.Context
 import android.content.Intent
@@ -8,14 +8,14 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import androidx.viewpager.widget.ViewPager
-import com.example.flowerboard.databinding.ActivityAdminBinding
+import com.example.flowerboard.UserFragment
 import com.example.flowerboard.databinding.ActivityUserBinding
+import com.example.flowerboard.model.modelCat
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import com.google.firebase.database.ktx.getValue
 
 class UserActivity : AppCompatActivity() {
 

@@ -1,9 +1,10 @@
-package com.example.flowerboard
+package com.example.flowerboard.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import com.example.flowerboard.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -44,12 +45,12 @@ class SplashActivity : AppCompatActivity() {
                         val userType =snapshot.child("userType").value
                         if(userType =="user"){
                             //simple user, open user page
-                            startActivity(Intent(this@SplashActivity,UserActivity::class.java))
+                            startActivity(Intent(this@SplashActivity, UserActivity::class.java))
                             finish()
                         }
                         else if (userType=="admin"){
                             //admin, open admin page
-                            startActivity(Intent(this@SplashActivity,AdminActivity::class.java))
+                            startActivity(Intent(this@SplashActivity, AdminActivity::class.java))
                             finish()
                         }
                     }

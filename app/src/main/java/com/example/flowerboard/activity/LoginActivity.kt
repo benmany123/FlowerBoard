@@ -1,4 +1,4 @@
-package com.example.flowerboard
+package com.example.flowerboard.activity
 
 import android.app.ProgressDialog
 import android.content.Intent
@@ -36,7 +36,7 @@ class LoginActivity : AppCompatActivity() {
 
         //handle click, not have ac
         binding.signUp.setOnClickListener {
-            startActivity(Intent(this,RegisterActivity::class.java))
+            startActivity(Intent(this, RegisterActivity::class.java))
         }
 
         //hadnle click, begin login
@@ -112,12 +112,12 @@ class LoginActivity : AppCompatActivity() {
                     val userType =snapshot.child("userType").value
                     if(userType =="user"){
                         //simple user, open user page
-                        startActivity(Intent(this@LoginActivity,UserActivity::class.java))
+                        startActivity(Intent(this@LoginActivity, UserActivity::class.java))
                         finish()
                     }
                     else if (userType=="admin"){
                         //admin, open admin page
-                        startActivity(Intent(this@LoginActivity,AdminActivity::class.java))
+                        startActivity(Intent(this@LoginActivity, AdminActivity::class.java))
                         finish()
                     }
                 }

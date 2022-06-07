@@ -1,10 +1,8 @@
-package com.example.flowerboard
+package com.example.flowerboard.activity
 
 import android.app.AlertDialog
-import android.app.Application
 import android.app.ProgressDialog
 import android.content.Intent
-import android.graphics.ColorSpace
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -14,6 +12,7 @@ import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import com.example.flowerboard.databinding.ActivityAddProductBinding
+import com.example.flowerboard.model.modelCat
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot

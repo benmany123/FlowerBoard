@@ -1,9 +1,8 @@
-package com.example.flowerboard
+package com.example.flowerboard.activity
 import android.app.ProgressDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.example.flowerboard.databinding.ActivityAdminBinding
 import com.example.flowerboard.databinding.ActivityCategoryBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
