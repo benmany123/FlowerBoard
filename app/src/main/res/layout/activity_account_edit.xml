@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/back01"
+    tools:context=".activity.AccountEditActivity">
+
+    <!--Toolbar-->
+    <RelativeLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:background="@drawable/toolbar01">
+
+        <!--Back button-->
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_back_white"
+            android:layout_margin="10dp"
+            android:background="@android:color/transparent"/>
+
+        <!--Title-->
+        <TextView
+            android:id="@+id/toolbarTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Edit Account Information"
+            android:layout_margin="10dp"
+            android:textColor="@color/white"/>
+
+        <!--Account Image-->
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/accountInfoTv"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_below="@id/toolbarTitle"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="40dp"
+            android:background="@color/white"
+            android:src="@drawable/ic_person2" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="225dp">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/nameTIL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hintEnabled="false">
+
+            <EditText
+                android:id="@+id/nameEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext01"
+                android:drawableStart="@drawable/ic_person2"
+                android:drawablePadding="10dp"
+                android:inputType="textCapWords|textPersonName"
+                android:textColor="@color/grey01"
+                android:hint="Name"/>
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!--Update account information button-->
+        <Button
+            android:id="@+id/updateButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_below="@id/nameTIL"
+            android:text="Update"
+            android:textColor="@color/white"
+            android:background="@drawable/button01"/>
+
+
+
+    </RelativeLayout>
+</RelativeLayout>

@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
@@ -45,6 +46,12 @@ class UserActivity : AppCompatActivity() {
             startActivity(Intent(this, MainActivity::class.java))
             finish()
         }
+
+        //handle click, open user information
+        binding.infoButton.setOnClickListener {
+            startActivity(Intent(this, AccountInfoActivity::class.java))
+        }
+
     }
 
     private fun setupPagerAdapter(viewPager: ViewPager){
@@ -66,12 +73,10 @@ class UserActivity : AppCompatActivity() {
                 //load some static categories eg all, most viewed, most downloaded
                 //add data to models
                 val modelAll = modelCat("01", "All", 1, "")
-                //val modelMostViewed = modelCat("01", "All", 1, "")
-                //val modelMostDownloaded = modelCat("01", "All", 1, "")
+
                 //add to list
                 categoryArrayList.add(modelAll)
-                //categoryArrayList.add(modelMostViewed)
-                //categoryArrayList.add(modelMostDownloaded)
+
                 //add toi viewPagerAdapter
                 viewPageAdapter.addFragment(
                     UserFragment.newInstance(
@@ -80,20 +85,7 @@ class UserActivity : AppCompatActivity() {
                         "${modelAll.uid}"
                     ), modelAll.category
                 )
-                /*viewPageAdapter.addFragment(
-                    UserFragment.newInstance(
-                        "${modelMostViewed.id}",
-                        "${modelMostViewed.category}",
-                        "${modelMostViewed.uid}"
-                    ), modelMostViewed.category
-                )
-                viewPageAdapter.addFragment(
-                    UserFragment.newInstance(
-                        "${modelMostDownloaded.id}",
-                        "${modelMostDownloaded.category}",
-                        "${modelMostDownloaded.uid}"
-                    ), modelMostDownloaded.category
-                )*/
+
                 //refresh list
                 viewPageAdapter.notifyDataSetChanged()
 
@@ -165,12 +157,21 @@ class UserActivity : AppCompatActivity() {
         if(firebaseUser == null){
             //not logged in, user can stay in user page without login
             binding.userEmail.text= "Not Logged In"
+
+            //hide user information, logout
+            binding.infoButton.visibility = View.GONE
+            binding.logoutButton.visibility = View.GONE
         }
         else{
             //logged in, get and show user info
             val email =firebaseUser.email
             //set to textview of toolbar
             binding.userEmail.text=email
+
+            //show account information, logout
+            binding.infoButton.visibility = View.VISIBLE
+            binding.logoutButton.visibility = View.VISIBLE
+
         }
     }
 }

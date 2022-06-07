@@ -36,27 +36,6 @@ class AdminActivity : AppCompatActivity() {
         checkUser()
         loadCategories()
 
-        //searach
-        /*binding.searchEdit.addTextChangedListener(object: TextWatcher{
-            override fun beforeTextChanged(s: CharSequence?, p1: Int, p2: Int, p3: Int) {
-
-            }
-
-            override fun onTextChanged(s: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                //called as and when user type anything
-                try{
-                    adapterCat.filter.filter(s)
-                }
-                catch (e: Exception){
-
-                }
-            }
-
-            override fun afterTextChanged(p0: Editable?) {
-
-            }
-        })*/
-
         //handle click. logout
         binding.logoutButton.setOnClickListener {
             firebaseAuth.signOut()
@@ -74,6 +53,10 @@ class AdminActivity : AppCompatActivity() {
         }
 
 
+        //handle click, open user information
+        binding.infoButton.setOnClickListener {
+            startActivity(Intent(this, AccountInfoActivity::class.java))
+        }
     }
 
     private fun loadCategories() {
