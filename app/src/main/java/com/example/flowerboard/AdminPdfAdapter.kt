@@ -64,24 +64,11 @@ class AdminPdfAdapter :RecyclerView.Adapter<AdminPdfAdapter.AdminPdfHolder>{//, 
 
         //pass null for page number || load pdf thumbnail
         MyApplication.loadPdf(pdfUrl, title, holder.pdfView, holder.progressBar, null)
-
-        //load pdf size
-        //MyApplication.loadPdfSize(pdfUrl, title, holder.sizeTv)
-
     }
 
     override fun getItemCount(): Int {
         return pdfArrayList.size //items count
     }
-
-    /*override fun getFilter(): Filter {
-        if(filter == null){
-            filter = AdminFilterPdf(filterList, this)
-        }
-
-        return filter as AdminFilterPdf
-    }*/
-
 
     //View Holder class for row_pdf_admin.xml
     inner class AdminPdfHolder(itemView: View) : RecyclerView.ViewHolder(itemView){

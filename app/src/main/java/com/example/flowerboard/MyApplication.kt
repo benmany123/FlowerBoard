@@ -30,43 +30,6 @@ class MyApplication:Application() {
             return DateFormat.format("dd/MM/yyyy", cal).toString()
         }
 
-        //function to get pdf size
-        /*fun loadPdfSize(pdfUrl: String, pdfTitle: String, sizeTv: TextView){
-            val TAG ="PDF_SIZE_TAG"
-
-        //using url we can get file and its meta data from firebase storage
-            val ref = FirebaseStorage.getInstance().getReferenceFromUrl(pdfUrl)
-            ref.metadata
-                .addOnSuccessListener {storageMetaData->
-                    Log.d(TAG, "loadPdfSize: Got metadata")
-                    val bytes = storageMetaData.sizeBytes.toDouble()
-                    Log.d(TAG, "loadPdfSize: Size Bytes $bytes")
-                    
-                    //convert bytes to KM/MB
-                    val kb= bytes /1024
-                    val mb = kb/1024
-                    if(mb>=1){
-                        sizeTv.text = "${String.format("%.2f", mb)} MB"
-                    }else if (kb>=1){
-                        sizeTv.text = "${String.format("%.2f", kb)} KB"
-                    }else{
-                        sizeTv.text = "${String.format("%.2f", bytes)} bytes"
-                    }
-                }
-                .addOnFailureListener {e->
-                //failed to get metadata
-                    Log.d(TAG, "loadPdfSize: Failed to get metadata due to${e.message}")    
-                    
-                }
-
-        }*/
-
-
-
-
-
-
-
         fun loadPdf(
             pdfUrl:String,
             pdfTitle: String,

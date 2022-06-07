@@ -35,18 +35,14 @@ class UserPdfAdapter : RecyclerView.Adapter<UserPdfAdapter.HolderPdfUser> {
 
         //get data
         val model = pdfArrayList[position]
-        val productId = model.id
+        //val productId = model.id
         val categoryId = model.categoryId
         val title = model.title
         val description = model.description
-        val uid = model.uid
+        //val uid = model.uid
         val url = model.url
         val timestamp = model.timestamp
-
-        //test
         val price = model.price
-
-
         //convert time
         val date = MyApplication.formatTimeStamp(timestamp)
 
@@ -54,8 +50,6 @@ class UserPdfAdapter : RecyclerView.Adapter<UserPdfAdapter.HolderPdfUser> {
         holder.titleTv.text = title
         holder.descriptionTv.text = description
         holder.dateTv.text = date
-
-        //test
         holder.priceTv.text = price
 
         MyApplication.loadPdf(url, title, holder.imageView, holder.progressBar, null)
@@ -68,7 +62,6 @@ class UserPdfAdapter : RecyclerView.Adapter<UserPdfAdapter.HolderPdfUser> {
         return pdfArrayList.size // return number of records
     }
 
-
     //View holder class row_pdf_user.xml
     inner class HolderPdfUser(itemView: View): RecyclerView.ViewHolder(itemView){
         //init UI components of row_pdf_user.xml
@@ -80,8 +73,5 @@ class UserPdfAdapter : RecyclerView.Adapter<UserPdfAdapter.HolderPdfUser> {
         var dateTv = binding.dateTv
         var priceTv = binding.priceTv
     }
-
-
-
 
 }
