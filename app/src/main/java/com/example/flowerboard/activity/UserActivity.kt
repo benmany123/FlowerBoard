@@ -36,7 +36,7 @@ class UserActivity : AppCompatActivity() {
 
         //init firebase auth
         firebaseAuth = FirebaseAuth.getInstance()
-        checkUser()
+        //checkUser()
 
         setupPagerAdapter(binding.viewPager)
         binding.tabLayout.setupWithViewPager(binding.viewPager)
@@ -46,12 +46,6 @@ class UserActivity : AppCompatActivity() {
             startActivity(Intent(this, MainActivity::class.java))
             finish()
         }
-
-        //handle click, open user information
-        binding.infoButton.setOnClickListener {
-            startActivity(Intent(this, AccountInfoActivity::class.java))
-        }
-
     }
 
     private fun setupPagerAdapter(viewPager: ViewPager){
@@ -151,7 +145,7 @@ class UserActivity : AppCompatActivity() {
 
     }
 
-    private fun checkUser() {
+    /*private fun checkUser() {
         //get current user
         val firebaseUser = firebaseAuth.currentUser
         if(firebaseUser == null){
@@ -173,5 +167,5 @@ class UserActivity : AppCompatActivity() {
             binding.logoutButton.visibility = View.VISIBLE
 
         }
-    }
+    }*/
 }

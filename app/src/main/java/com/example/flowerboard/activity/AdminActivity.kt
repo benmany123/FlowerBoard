@@ -51,12 +51,6 @@ class AdminActivity : AppCompatActivity() {
         binding.addProductButton.setOnClickListener {
             startActivity(Intent(this, AddPdfActivity::class.java))
         }
-
-
-        //handle click, open user information
-        binding.infoButton.setOnClickListener {
-            startActivity(Intent(this, AccountInfoActivity::class.java))
-        }
     }
 
     private fun loadCategories() {

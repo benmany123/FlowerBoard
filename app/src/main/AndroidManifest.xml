@@ -29,12 +29,6 @@
             android:exported="false"
             android:label="@string/title_activity_maps" />
         <activity
-            android:name=".activity.AccountEditActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activity.AccountInfoActivity"
-            android:exported="false" />
-        <activity
             android:name=".activity.PdfListAdminActivity"
             android:exported="false" />
         <activity
