@@ -44,28 +44,6 @@ class ProductListAdminActivity : AppCompatActivity() {
 
         //load products
         loadPdfList()
-
-        //search
-        /*binding.searchEdit.addTextChangedListener(object: TextWatcher{
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-
-            }
-
-            override fun onTextChanged(s: CharSequence, p1: Int, p2: Int, p3: Int) {
-                //filter data
-                try{
-                    adapter.filter!!.filter(s)
-                }
-                catch (e: Exception){
-                    Log.d(TAG, "onTextChanged: ${e.message}")
-                }
-            }
-
-            override fun afterTextChanged(p0: Editable?) {
-
-            }
-
-        })*/
     }
 
     private fun loadPdfList() {

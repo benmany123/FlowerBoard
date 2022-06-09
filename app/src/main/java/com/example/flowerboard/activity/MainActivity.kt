@@ -60,10 +60,6 @@ class MainActivity : AppCompatActivity() {
             biometricPrompt.authenticate(getCancellationSignal(), mainExecutor, authenticationCallback)
         }
 
-        //handle click, login
-        /*binding.loginButton.setOnClickListener {
-            startActivity(Intent(this, LoginActivity::class.java))
-        }*/
         binding.mapButton.setOnClickListener {
             startActivity(Intent(this,MapsActivity::class.java))
         }

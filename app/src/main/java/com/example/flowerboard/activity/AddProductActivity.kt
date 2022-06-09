@@ -168,8 +168,6 @@ class AddProductActivity : AppCompatActivity() {
         hashMap["categoryId"] = "$selectedCategoryId"
         hashMap["url"] = "$uploadPdfUrl"
         hashMap["timestamp"] = timestamp
-        //hashMap["viewsCount"] = 0
-        //hashMap["downloadsCount"] = 0
         hashMap["price"] = "$price"
 
         //db reference DB > Flower Boards > Product ID > Flower Board Info
