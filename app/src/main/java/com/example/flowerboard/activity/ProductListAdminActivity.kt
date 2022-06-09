@@ -20,13 +20,14 @@ class ProductListAdminActivity : AppCompatActivity() {
         const val TAG = "PDF_LIST_ADMIN_TAG"
     }
 
-    //category id, title
+    //Category information
     private var categoryId =""
     private var category =""
 
-    //arraylist to hold products
+    //Arraylist to hold product
     private lateinit var pdfArrayList: ArrayList<modelProduct>
-    //adapter
+
+    //View page adapter
     private lateinit var adapter: AdminProductAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,20 +35,20 @@ class ProductListAdminActivity : AppCompatActivity() {
         binding = ActivityProductListAdminBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //get from intent, that we passed from adapter
+        //Get the information from intent
         val intent = intent
         categoryId = intent.getStringExtra("categoryId")!!
         category = intent.getStringExtra("category")!!
 
-        //set pdf category
+        //Place the category to the subtitle text view
         binding.subTitleTv.text = category
 
-        //load products
-        loadPdfList()
+        //Load products
+        loadProductList()
     }
 
-    private fun loadPdfList() {
-        //init arraylist
+    private fun loadProductList() {
+        //Initialize arraylist
         pdfArrayList = ArrayList()
 
         val ref = FirebaseDatabase.getInstance().getReference("FlowerBoards")

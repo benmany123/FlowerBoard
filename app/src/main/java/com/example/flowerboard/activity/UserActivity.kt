@@ -27,6 +27,8 @@ class UserActivity : AppCompatActivity() {
 
     //Arraylist to hold product category
     private lateinit var categoryArrayList: ArrayList<modelCategory>
+
+    //View page adapter
     private lateinit var viewPageAdapter: ViewPagerAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
