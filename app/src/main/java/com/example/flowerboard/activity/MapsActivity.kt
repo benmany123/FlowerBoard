@@ -20,17 +20,11 @@ import com.google.android.gms.maps.model.*
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
 
     private lateinit var mMap: GoogleMap
-    //private lateinit var binding: ActivityMapsBinding
-
-    //gps
     private lateinit var lastLocation: Location
     private lateinit var fusedLocationClient : FusedLocationProviderClient
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        //binding = ActivityMapsBinding.inflate(layoutInflater)
-        //setContentView(binding.root)
         setContentView(R.layout.activity_maps)
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
@@ -44,11 +38,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
 
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
-        //gps
         mMap.uiSettings.isZoomControlsEnabled = true
         mMap.setOnMarkerClickListener(this)
         setUpMap()
-
     }
 
     private fun setUpMap() {
@@ -84,23 +76,11 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
                     Toast.makeText(this, "Failed to get the current location", Toast.LENGTH_SHORT).show()
                 }
             }
-
     }
-
     private fun placeMarkerShop(shop: LatLng) {
         val markerOptions2 = MarkerOptions().position(shop)
         markerOptions2.title("$shop")
         mMap.addMarker(markerOptions2)
     }
-
-    private fun placeMarker(currentLatLong: LatLng) {
-        val markerOptions = MarkerOptions().position(currentLatLong)
-        markerOptions.title("$currentLatLong").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE))
-        mMap.addMarker(markerOptions)
-
-    }
-
     override fun onMarkerClick(p0: Marker)=false
-
-
 }

@@ -15,10 +15,10 @@ class RegisterActivity : AppCompatActivity() {
     //View binding
     private lateinit var binding: ActivityRegisterBinding
 
-    //firebase auth
+    //Firebase auth
     private lateinit var firebaseAuth: FirebaseAuth
 
-    //progress dialog
+    //Progress dialog
     private lateinit var progressDialog: ProgressDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,123 +26,110 @@ class RegisterActivity : AppCompatActivity() {
         binding =  ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //init firebase auth
+        //Initialize firebase auth
         firebaseAuth = FirebaseAuth.getInstance()
 
-        //init progress dialog, will show while create ac
+        //Initialize progress dialog
         progressDialog = ProgressDialog(this)
         progressDialog.setTitle("Please wait")
         progressDialog.setCanceledOnTouchOutside(false)
 
-        //handle back
+        //Back button
         binding.backButton.setOnClickListener {
-            onBackPressed() // goto previous screen
+            onBackPressed()
         }
 
-        //handle click, begin register
+        //Register button
         binding.registerButton.setOnClickListener {
-            /*Steps
-            1. Input data
-            2. validate data
-            3. create account - firebase auth
-            4. Save user info - firebase realtime database*/
-            validateData()
+            validation()
         }
-
     }
 
     private var name=""
     private var email=""
     private var password=""
 
-    private fun validateData() {
-        //1. Input data
+    private fun validation() {
+
+        //Capture the user input data from layout view components
         name = binding.nameEdit.text.toString().trim()
         email = binding.emailEt.text.toString().trim()
         password = binding.passwordEdit.text.toString().trim()
         val cPassword = binding.confirmPasswordEt.text.toString().trim()
 
-        //2. Validate data
+        //Checking for the user input
         if(name.isEmpty()){
-            //empty name..
-            Toast.makeText(this,"Enter your name", Toast.LENGTH_SHORT).show()
+            //Empty user name
+            Toast.makeText(this,"Please enter user name", Toast.LENGTH_SHORT).show()
         }
         else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-            //invalid email pattern
-            Toast.makeText(this,"Invalid Email Pattern...", Toast.LENGTH_SHORT).show()
+            //Invalid email format
+            Toast.makeText(this,"Please check the email format", Toast.LENGTH_SHORT).show()
         }
         else if(password.isEmpty()){
-            //empty pw
-            Toast.makeText(this, "Enter password", Toast.LENGTH_SHORT).show()
+            //Empty password
+            Toast.makeText(this, "Please enter password", Toast.LENGTH_SHORT).show()
         }
         else if(cPassword.isEmpty()){
-            //empty password
-            Toast.makeText(this,"Confirm password...", Toast.LENGTH_SHORT).show()
+            //Empty confirm password
+            Toast.makeText(this,"Please enter confirm password", Toast.LENGTH_SHORT).show()
         }
         else if (password !=cPassword){
-            Toast.makeText(this,"Password doesn't match...", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this,"Please make sure password and confirm password is matched", Toast.LENGTH_SHORT).show()
         }
         else{
-            createUserAccount()
+            createAccount()
         }
     }
 
-    private fun createUserAccount() {
-       //3. Create account
+    //Create user account and add to firebase
+    private fun createAccount() {
 
         //show progress
-        progressDialog.setMessage("Creating account...")
+        progressDialog.setMessage("Processing...")
         progressDialog.show()
 
-        //create user in firebase auth
+
         firebaseAuth.createUserWithEmailAndPassword(email, password)
             .addOnSuccessListener {
-                //account created
                 updateUserInfo()
-
             }
-            .addOnFailureListener { e->
+            .addOnFailureListener {
                 //Failed creating account
                 progressDialog.dismiss()
-                Toast.makeText(this,"Failed creating account due to ${e.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,"Failed to created account", Toast.LENGTH_SHORT).show()
             }
     }
 
     private fun updateUserInfo() {
-        //4. Save user info - firebase realtime database
 
-        progressDialog.setMessage("Saving user info...")
-
-        //timestamp
+        progressDialog.setMessage("Rpocessing...")
         val timestamp= System.currentTimeMillis()
-
-        //get current user uid, since user is registered so we can get it now
         val uid = firebaseAuth.uid
-
-        //setup data to add in db
         val hashMap: HashMap<String, Any?> = HashMap()
+
         hashMap["uid"] = uid
         hashMap["email"] = email
         hashMap["name"] = name
-        hashMap["profileImage"] = "" // add empty, will do in profile edit
-        hashMap["userType"] = "user" //possible values are user/admin, change in firebase
+
+        //Define the account is user/admin
+        hashMap["userType"] = "user"
         hashMap["timestamp"] = timestamp
 
-        //set data to db
-        val ref=FirebaseDatabase.getInstance().getReference("Users")
-        ref.child(uid!!)
-            .setValue(hashMap)
+        //Set the user account information to firebase
+        val user=FirebaseDatabase.getInstance().getReference("Users")
+        user.child(uid!!).setValue(hashMap)
             .addOnSuccessListener {
-                //user info saved
+                //Update data to firebase successful
                 progressDialog.dismiss()
-                Toast.makeText(this,"Account Created...", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,"Account Created", Toast.LENGTH_SHORT).show()
                 startActivity(Intent(this@RegisterActivity, UserActivity::class.java))
                 finish()
             }
-            .addOnFailureListener { e->
-                //failed add data to db
+            .addOnFailureListener {
+                //Failed to update data to firebase
                 progressDialog.dismiss()
-                Toast.makeText(this,"Failed saving user info due to ${e.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,"Failed saving user information", Toast.LENGTH_SHORT).show()
             }
     }
 }
