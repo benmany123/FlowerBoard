@@ -19,12 +19,13 @@ import com.google.firebase.database.ValueEventListener
 
 class UserActivity : AppCompatActivity() {
 
-    //view binding
+    //View binding
     private lateinit var binding: ActivityUserBinding
 
-    //firebase auth
+    //Firebase auth
     private lateinit var firebaseAuth: FirebaseAuth
 
+    //Arraylist to hold product category
     private lateinit var categoryArrayList: ArrayList<modelCategory>
     private lateinit var viewPageAdapter: ViewPagerAdapter
 
@@ -33,12 +34,12 @@ class UserActivity : AppCompatActivity() {
         binding = ActivityUserBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //init firebase auth
+        //Initialize firebase auth
         firebaseAuth = FirebaseAuth.getInstance()
 
+        //Setup Page adapter
         setupPagerAdapter(binding.viewPager)
         binding.tabLayout.setupWithViewPager(binding.viewPager)
-
         binding.logoutButton.setOnClickListener {
             firebaseAuth.signOut()
             startActivity(Intent(this, MainActivity::class.java))
@@ -47,29 +48,26 @@ class UserActivity : AppCompatActivity() {
     }
 
     private fun setupPagerAdapter(viewPager: ViewPager){
-        viewPageAdapter = ViewPagerAdapter(supportFragmentManager, FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT,
-            this
-        )
+        viewPageAdapter = ViewPagerAdapter(supportFragmentManager, FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT, this)
 
-        //init list
+        //Initialize the category array list
         categoryArrayList = ArrayList()
 
-        //load categories from db
-        val ref = FirebaseDatabase.getInstance().getReference("Categories")
-        ref.addListenerForSingleValueEvent(object : ValueEventListener{
+        //Get the product category url from firebase
+        val cat = FirebaseDatabase.getInstance().getReference("Categories")
+        cat.addListenerForSingleValueEvent(object : ValueEventListener{
 
             override fun onDataChange(snapshot: DataSnapshot) {
-                //clear list
+                //Clear the array list
                 categoryArrayList.clear()
 
-                //load some static categories eg all, most viewed, most downloaded
                 //add data to models
                 val modelAll = modelCategory("01", "All", 1, "")
 
-                //add to list
+                //Add model to the category array list
                 categoryArrayList.add(modelAll)
 
-                //add toi viewPagerAdapter
+                //Add view pager adapter
                 viewPageAdapter.addFragment(
                     UserFragment.newInstance(
                         "${modelAll.id}",
@@ -78,16 +76,18 @@ class UserActivity : AppCompatActivity() {
                     ), modelAll.category
                 )
 
-                //refresh list
+                //Make a refresh for the array list
                 viewPageAdapter.notifyDataSetChanged()
 
-                //Load from firebase db
-                for(ds in snapshot.children){
-                    //get data in model
-                    val model = ds.getValue(modelCategory::class.java)
-                    //add to list
+                for(n in snapshot.children){
+
+                    //Get the category value to model
+                    val model = n.getValue(modelCategory::class.java)
+
+                    //Add the data to category list
                     categoryArrayList.add(model!!)
-                    //add to viewPagerAdapter
+
+                    //Add fragment to view pager adapter
                     viewPageAdapter.addFragment(
                         UserFragment.newInstance(
                             "${model.id}",
@@ -95,49 +95,45 @@ class UserActivity : AppCompatActivity() {
                             "${model.uid}"
                         ), model.category
                     )
-                    //refresh list
+
+                    //Make a refresh for the array list
                     viewPageAdapter.notifyDataSetChanged()
                 }
             }
 
             override fun onCancelled(error: DatabaseError) {
-                //
+                //Cancelled
             }
         })
 
-        //setup adapter to viewpager
+        //Set the view page adapter to view pager
         viewPager.adapter =viewPageAdapter
     }
 
     class ViewPagerAdapter(fm: FragmentManager, behavior: Int, context: Context): FragmentPagerAdapter(fm, behavior){
 
-        //holds list of fragments i.e. new instances of same fragment for each category
+        //Set the list of user fragments
         private val fragmentsList: ArrayList<UserFragment> = ArrayList()
-        //list of titles of categories, for tabs
+
+        //Set the list of product title fragments
         private val fragmentTitleList: ArrayList<String> = ArrayList()
 
+        //Set the context
         private val context: Context
+        init{this.context = context}
 
-        init{
-            this.context = context
-        }
+        //Get number of fragments list records
+        override fun getCount(): Int {return fragmentsList.size}
 
-        override fun getCount(): Int {
-            return fragmentsList.size
-        }
+        override fun getItem(p: Int): Fragment {return fragmentsList[p]}
 
-        override fun getItem(position: Int): Fragment {
-            return fragmentsList[position]
-        }
-
-        override fun getPageTitle(position: Int): CharSequence{
-            return fragmentTitleList[position]
-        }
+        override fun getPageTitle(p: Int): CharSequence{return fragmentTitleList[p]}
 
         public fun addFragment(fragment: UserFragment, title: String){
-            //add fragment that will be passed as parameter in fragmentList
+
+            //Add fragment to fragment list
             fragmentsList.add(fragment)
-            //add title that will be passed as parameter
+            //Add title to fragment list
             fragmentTitleList.add(title)
         }
 

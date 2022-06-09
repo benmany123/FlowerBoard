@@ -12,7 +12,7 @@ import com.google.firebase.database.FirebaseDatabase
 
 class RegisterActivity : AppCompatActivity() {
 
-    //view binding
+    //View binding
     private lateinit var binding: ActivityRegisterBinding
 
     //firebase auth

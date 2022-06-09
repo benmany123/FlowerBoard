@@ -29,7 +29,6 @@ class MyApplication:Application() {
 
             //Get the product url from firebase
             val product = FirebaseStorage.getInstance().getReferenceFromUrl(url)
-            //ref.getBytes(Constants.Max_BYTES_PDF)
             product.getBytes(10000000)
                 .addOnSuccessListener {bytes->
                     //Set to product pdf preview
