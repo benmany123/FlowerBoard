@@ -29,10 +29,10 @@
             android:exported="false"
             android:label="@string/title_activity_maps" />
         <activity
-            android:name=".activity.PdfListAdminActivity"
+            android:name=".activity.ProductListAdminActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.AddPdfActivity"
+            android:name=".activity.AddProductActivity"
             android:exported="false" />
         <activity
             android:name=".activity.CategoryActivity"

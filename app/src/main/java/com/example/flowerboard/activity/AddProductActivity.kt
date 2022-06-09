@@ -12,7 +12,7 @@ import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import com.example.flowerboard.databinding.ActivityAddProductBinding
-import com.example.flowerboard.model.modelCat
+import com.example.flowerboard.model.modelCategory
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -21,7 +21,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
 
-class AddPdfActivity : AppCompatActivity() {
+class AddProductActivity : AppCompatActivity() {
 
     //setup view binding activity_pdf_add -->ActivityPDFAdding Binding
     private lateinit var binding: ActivityAddProductBinding
@@ -33,7 +33,7 @@ class AddPdfActivity : AppCompatActivity() {
     private lateinit var progressDialog: ProgressDialog
 
     //arraylist to hold pdf categories
-    private lateinit var categoryArrayList: ArrayList<modelCat>
+    private lateinit var categoryArrayList: ArrayList<modelCategory>
 
     //uri of picked pdf
     private var pdfUri: Uri? = null
@@ -45,7 +45,6 @@ class AddPdfActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityAddProductBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
 
         //init firebase auth
         firebaseAuth = FirebaseAuth.getInstance()
@@ -203,7 +202,7 @@ class AddPdfActivity : AppCompatActivity() {
                 categoryArrayList.clear()
                 for(ds in snapshot.children){
                     //get data
-                    val model = ds.getValue(modelCat::class.java)
+                    val model = ds.getValue(modelCategory::class.java)
                     //add to array list
                     categoryArrayList.add(model!!)
                     Log.d(TAG, "onDataChange: ${model.category}")

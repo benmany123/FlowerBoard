@@ -6,9 +6,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.flowerboard.adapter.UserPdfAdapter
+import com.example.flowerboard.adapter.UserProductAdapter
 import com.example.flowerboard.databinding.FragmentUserBinding
-import com.example.flowerboard.model.modelPdf
+import com.example.flowerboard.model.modelProduct
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -40,8 +40,8 @@ class UserFragment : Fragment {
     private var category = ""
     private var uid = ""
     //arraylist to hold pdfs
-    private lateinit var pdfArrayList: ArrayList<modelPdf>
-    private lateinit var adapterPdfUser: UserPdfAdapter
+    private lateinit var pdfArrayList: ArrayList<modelProduct>
+    private lateinit var adapterPdfUser: UserProductAdapter
 
     constructor()
 
@@ -87,12 +87,12 @@ class UserFragment : Fragment {
                 pdfArrayList.clear()
                 for (ds in snapshot.children){
                     //get data
-                    val model = ds.getValue(modelPdf::class.java)
+                    val model = ds.getValue(modelProduct::class.java)
                     //add to list
                     pdfArrayList.add(model!!)
                 }
                 //setup adapter
-                adapterPdfUser = UserPdfAdapter(context!!, pdfArrayList)
+                adapterPdfUser = UserProductAdapter(context!!, pdfArrayList)
                 //set adapter to recycle view
                 binding.productsRv.adapter = adapterPdfUser
             }
@@ -114,12 +114,12 @@ class UserFragment : Fragment {
                 pdfArrayList.clear()
                 for (ds in snapshot.children){
                     //get data
-                    val model = ds.getValue(modelPdf::class.java)
+                    val model = ds.getValue(modelProduct::class.java)
                     //add to list
                     pdfArrayList.add(model!!)
                 }
                 //setup adapter
-                adapterPdfUser = UserPdfAdapter(context!!, pdfArrayList)
+                adapterPdfUser = UserProductAdapter(context!!, pdfArrayList)
                 //set adapter to recycle view
                 binding.productsRv.adapter = adapterPdfUser
             }

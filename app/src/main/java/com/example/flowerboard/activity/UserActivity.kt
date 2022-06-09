@@ -4,14 +4,13 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.example.flowerboard.UserFragment
 import com.example.flowerboard.databinding.ActivityUserBinding
-import com.example.flowerboard.model.modelCat
+import com.example.flowerboard.model.modelCategory
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -26,7 +25,7 @@ class UserActivity : AppCompatActivity() {
     //firebase auth
     private lateinit var firebaseAuth: FirebaseAuth
 
-    private lateinit var categoryArrayList: ArrayList<modelCat>
+    private lateinit var categoryArrayList: ArrayList<modelCategory>
     private lateinit var viewPageAdapter: ViewPagerAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -65,7 +64,7 @@ class UserActivity : AppCompatActivity() {
 
                 //load some static categories eg all, most viewed, most downloaded
                 //add data to models
-                val modelAll = modelCat("01", "All", 1, "")
+                val modelAll = modelCategory("01", "All", 1, "")
 
                 //add to list
                 categoryArrayList.add(modelAll)
@@ -85,7 +84,7 @@ class UserActivity : AppCompatActivity() {
                 //Load from firebase db
                 for(ds in snapshot.children){
                     //get data in model
-                    val model = ds.getValue(modelCat::class.java)
+                    val model = ds.getValue(modelCategory::class.java)
                     //add to list
                     categoryArrayList.add(model!!)
                     //add to viewPagerAdapter

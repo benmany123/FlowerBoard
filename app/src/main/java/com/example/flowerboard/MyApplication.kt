@@ -2,10 +2,10 @@ package com.example.flowerboard
 
 import android.app.Application
 import android.text.format.DateFormat
-import android.util.Log
 import android.view.View
 import android.widget.ProgressBar
 import android.widget.TextView
+import android.widget.Toast
 import com.github.barteksc.pdfviewer.PDFView
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -16,83 +16,46 @@ import java.util.*
 
 class MyApplication:Application() {
 
-    override fun onCreate() {
-        super.onCreate()
-    }
     companion object{
-        //convert timestamp to proper date format
+
+        //Convert timestamp to dd/mm/yyyy date format
         fun formatTimeStamp(timestamp: Long) : String{
-            val cal = Calendar.getInstance(Locale.ENGLISH)
-            cal.timeInMillis = timestamp
-            //format dd/mm/yyyy
-            return DateFormat.format("dd/MM/yyyy", cal).toString()
+
+            val date = Calendar.getInstance(Locale.ENGLISH)
+            date.timeInMillis = timestamp
+            return DateFormat.format("dd/MM/yyyy", date).toString()
         }
+        fun loadProduct(url: String, preview: PDFView, progressBar: ProgressBar){
 
-        fun loadPdf(
-            pdfUrl:String,
-            pdfTitle: String,
-            pdfView: PDFView,
-            progressBar: ProgressBar,
-            pagesTv: TextView?
-        ){
-            val TAG = "PDF_THUMBNAIL_TAG"
-
-            //using url we can get file and its metadata from firebase storage
-            val ref = FirebaseStorage.getInstance().getReferenceFromUrl(pdfUrl)
-            ref.getBytes(Constants.Max_BYTES_PDF)
+            //Get the product url from firebase
+            val product = FirebaseStorage.getInstance().getReferenceFromUrl(url)
+            //ref.getBytes(Constants.Max_BYTES_PDF)
+            product.getBytes(10000000)
                 .addOnSuccessListener {bytes->
-
-                    //Log.d(TAG, "loadPdfSize: Size Bytes $bytes")
-
-                    //Set to pdfview
-                    pdfView.fromBytes(bytes)
-                        .pages(0) // show first page only
-                        .spacing(0)
-                        .swipeHorizontal(false)
-                        .enableSwipe(false)
-                        .onError { t->
+                    //Set to product pdf preview
+                    preview.fromBytes(bytes).pages(0)
+                        .onLoad{
+                            //After loading, make the progress bar invisible
                             progressBar.visibility = View.INVISIBLE
-                            Log.d(TAG, "loadPdf: ${t.message}")
-                        }
-                        .onPageError { page, t ->
-                            progressBar.visibility = View.INVISIBLE
-                            Log.d(TAG, "loadPdf: ${t.message}")
-                        }
-                        .onLoad{nbPages ->
-                            Log.d(TAG, "loadPdf: Pages $nbPages")
-                            //pdf loaded, we can set page count, pdf thumbnail
-                            progressBar.visibility = View.INVISIBLE
-
-                            //if pagesTv param is not null then set page numbers
-                            if(pagesTv != null){
-                                pagesTv.text = "$nbPages"
-                            }
                         }
                         .load()
                 }
-                .addOnFailureListener {e->
-                    //failed to get metadata
-                    Log.d(TAG, "loadPdfSize: Failed to get metadata due to${e.message}")
+                .addOnFailureListener {
                 }
         }
-
-
-
         fun loadCategory(categoryId: String, categoryTv:TextView){
-            //load category using category id from firebase
-            val ref = FirebaseDatabase.getInstance().getReference("Categories")
-            ref.child(categoryId)
+
+            //Get the category data from firebase
+            val categories = FirebaseDatabase.getInstance().getReference("Categories")
+            categories.child(categoryId)
                 .addListenerForSingleValueEvent(object: ValueEventListener{
                     override fun onDataChange(snapshot: DataSnapshot) {
-                        //get category
+                        //Obtain the category value
                         val category = "${snapshot.child("category").value}"
-
-                        //set category
+                        //Place the category to the category text view
                         categoryTv.text = category
                     }
-
                     override fun onCancelled(error: DatabaseError) {
-
                     }
                 })
         }

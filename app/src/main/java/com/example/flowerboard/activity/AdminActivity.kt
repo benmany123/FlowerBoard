@@ -3,9 +3,9 @@ package com.example.flowerboard.activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.flowerboard.adapter.AdapterCat
+import com.example.flowerboard.adapter.CategoryAdapter
 import com.example.flowerboard.databinding.ActivityAdminBinding
-import com.example.flowerboard.model.modelCat
+import com.example.flowerboard.model.modelCategory
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -22,9 +22,9 @@ class AdminActivity : AppCompatActivity() {
 
 
     //arraylist to hold categories
-    private lateinit var categoryArrayList: ArrayList<modelCat>
+    private lateinit var categoryArrayList: ArrayList<modelCategory>
     //adapter
-    private lateinit var adapterCat: AdapterCat
+    private lateinit var adapterCat: CategoryAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,7 +49,7 @@ class AdminActivity : AppCompatActivity() {
 
         //handle click, start add pdf page
         binding.addProductButton.setOnClickListener {
-            startActivity(Intent(this, AddPdfActivity::class.java))
+            startActivity(Intent(this, AddProductActivity::class.java))
         }
     }
 
@@ -65,13 +65,13 @@ class AdminActivity : AppCompatActivity() {
                 categoryArrayList.clear()
                 for(ds in snapshot.children){
                     //get data as model
-                    val model = ds.getValue(modelCat::class.java)
+                    val model = ds.getValue(modelCategory::class.java)
 
                         //add to arraylist
                     categoryArrayList.add(model!!)
                 }
                 //setup adapter
-                adapterCat = AdapterCat(this@AdminActivity, categoryArrayList)
+                adapterCat = CategoryAdapter(this@AdminActivity, categoryArrayList)
                 //set adapter to recylerview
                 binding.categoriesRv.adapter = adapterCat
             }
