@@ -27,10 +27,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_maps)
 
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        val mapFragment = supportFragmentManager
-            .findFragmentById(R.id.map) as SupportMapFragment
-        mapFragment.getMapAsync(this)
+        //Get fragment when the map is ready to be used.
+        val fragment = supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
+        fragment.getMapAsync(this)
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
 
@@ -54,16 +53,20 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         mMap.isMyLocationEnabled = true
         fusedLocationClient.lastLocation.addOnSuccessListener(this) { location->
                 if(location != null){
+
+                    //Current location
                     lastLocation = location
                     val currentLatLong = LatLng(location.latitude, location.longitude)
-                    //placeMarker(currentLatLong) //current location
 
+                    //Define the coordinate of the shop
                     val shop1 = LatLng(22.3179438,114.1691614) //Mong Kok
                     val shop2 = LatLng(22.3905233,114.0050124) //Tuen Mun
                     val shop3 = LatLng(22.3282854,114.1585399) //Sham Shui Po
                     val shop4 = LatLng(22.3082466,114.1709209) //Jordan Station
                     val shop5 = LatLng(22.2773499,114.1696255) //Wan Chai
                     val shop6 = LatLng(22.3334816,114.1926925) //Diamond Hill
+
+                    //Place the shop marker on the map
                     placeMarkerShop(shop1)
                     placeMarkerShop(shop2)
                     placeMarkerShop(shop3)
@@ -71,12 +74,16 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
                     placeMarkerShop(shop5)
                     placeMarkerShop(shop6)
 
+                    //Animation
                     mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLong, 13f))
                 }else{
+                    //Failed to get current location
                     Toast.makeText(this, "Failed to get the current location", Toast.LENGTH_SHORT).show()
                 }
             }
     }
+
+    //Function of place marker on the map
     private fun placeMarkerShop(shop: LatLng) {
         val markerOptions2 = MarkerOptions().position(shop)
         markerOptions2.title("$shop")

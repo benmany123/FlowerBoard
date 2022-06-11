@@ -1,8 +1,8 @@
 package com.example.flowerboard.activity
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.example.flowerboard.adapter.CategoryAdapter
 import com.example.flowerboard.databinding.ActivityAdminBinding
 import com.example.flowerboard.model.modelCategory
@@ -11,21 +11,21 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import org.junit.Assert.*
+import org.junit.Test
 
 class AdminActivity : AppCompatActivity() {
 
     //View binding
     private lateinit var binding: ActivityAdminBinding
-
     //Firebase auth
     private lateinit var firebaseAuth: FirebaseAuth
-
-
     //Category array list
     private lateinit var categoryArray: ArrayList<modelCategory>
     //Adapter
     private lateinit var adapterCat: CategoryAdapter
 
+    @Test
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityAdminBinding.inflate(layoutInflater)
@@ -41,25 +41,29 @@ class AdminActivity : AppCompatActivity() {
             firebaseAuth.signOut()
             checkUser()
         }
+        assertTrue(binding.logoutButton.isClickable)
 
         //Add category button
         binding.addCategoryButton.setOnClickListener {
             startActivity(Intent(this, CategoryActivity::class.java))
         }
+        assertTrue(binding.addCategoryButton.isClickable)
 
         //Add product
         binding.addProductButton.setOnClickListener {
             startActivity(Intent(this, AddProductActivity::class.java))
         }
+        assertTrue(binding.addProductButton.isClickable)
     }
 
+    @Test
     private fun loadCategories() {
         //Initialize arraylist
         categoryArray = ArrayList()
 
         //Get categories from firebase
         val cat = FirebaseDatabase.getInstance().getReference("Categories")
-        cat.addValueEventListener(object : ValueEventListener{
+        cat.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
 
                 //Clear the category array list
@@ -82,6 +86,7 @@ class AdminActivity : AppCompatActivity() {
         })
     }
 
+    @Test
     private fun checkUser() {
 
         //Get current user
@@ -96,6 +101,7 @@ class AdminActivity : AppCompatActivity() {
             //With login, set the layout to admin email account
             val email =firebaseUser.email
             binding.adminEmail.text=email
+            assertTrue(binding.adminEmail.text.isEmpty())
         }
     }
 }

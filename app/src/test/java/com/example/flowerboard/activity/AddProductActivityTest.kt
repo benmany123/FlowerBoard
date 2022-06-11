@@ -1,16 +1,16 @@
 package com.example.flowerboard.activity
 
+import androidx.activity.result.ActivityResult
+import androidx.activity.result.ActivityResultCallback
 import android.app.AlertDialog
 import android.app.ProgressDialog
 import android.content.Intent
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
-import androidx.activity.result.ActivityResult
-import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import com.example.flowerboard.databinding.ActivityAddProductBinding
 import com.example.flowerboard.model.modelCategory
 import com.google.android.gms.tasks.Task
@@ -20,6 +20,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
+import org.junit.Assert.*
 
 class AddProductActivity : AppCompatActivity() {
 
@@ -187,7 +188,7 @@ class AddProductActivity : AppCompatActivity() {
 
         //db reference to load categories DF > Categories
         val ref = FirebaseDatabase.getInstance().getReference("Categories")
-        ref.addListenerForSingleValueEvent(object : ValueEventListener{
+        ref.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 //clear list before adding data
                 categoryArrayList.clear()

@@ -16,16 +16,16 @@ class ProductListAdminActivity : AppCompatActivity() {
     //view binding
     private lateinit var binding: ActivityProductListAdminBinding
 
-    private companion object{
+    /*private companion object{
         const val TAG = "PDF_LIST_ADMIN_TAG"
-    }
+    }*/
 
     //Category information
     private var categoryId =""
     private var category =""
 
     //Arraylist to hold product
-    private lateinit var pdfArrayList: ArrayList<modelProduct>
+    private lateinit var productArray: ArrayList<modelProduct>
 
     //View page adapter
     private lateinit var adapter: AdminProductAdapter
@@ -49,25 +49,25 @@ class ProductListAdminActivity : AppCompatActivity() {
 
     private fun loadProductList() {
         //Initialize arraylist
-        pdfArrayList = ArrayList()
+        productArray = ArrayList()
 
         val ref = FirebaseDatabase.getInstance().getReference("FlowerBoards")
         ref.orderByChild("categoryId").equalTo(categoryId)
             .addValueEventListener(object: ValueEventListener{
                 override fun onDataChange(snapshot: DataSnapshot) {
-                    //clear list before start adding data into it
-                    pdfArrayList.clear()
+
+                    //Clear the product list
+                    productArray.clear()
                     for (ds in snapshot.children){
-                        //get data
-                        val model = ds.getValue(modelProduct::class.java)
-                        //add to list
-                        if (model != null) {
-                            pdfArrayList.add(model)
-                            Log.d(TAG, "onDataChange: ${model.title} ${model.categoryId}")
+                        //Get the value from model product layout
+                        val productInfo = ds.getValue(modelProduct::class.java)
+                        //Add the value tp the list
+                        if (productInfo != null) {
+                            productArray.add(productInfo)
                         }
                     }
-                    //setup adapter
-                    adapter = AdminProductAdapter(this@ProductListAdminActivity, pdfArrayList)
+                    //Setup admin product adapter
+                    adapter = AdminProductAdapter(this@ProductListAdminActivity, productArray)
                     binding.boardsRv.adapter = adapter
                 }
 

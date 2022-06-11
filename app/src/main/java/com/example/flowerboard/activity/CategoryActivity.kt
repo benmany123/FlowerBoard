@@ -9,13 +9,13 @@ import com.google.firebase.database.FirebaseDatabase
 
 class CategoryActivity : AppCompatActivity() {
 
-    //view binding
+    //View binding
     private lateinit var binding: ActivityCategoryBinding
 
-    //firebase auth
+    //Firebase auth
     private lateinit var firebaseAuth: FirebaseAuth
 
-    //progress dialog
+    //Progress dialog
     private lateinit var progressDialog: ProgressDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,40 +23,38 @@ class CategoryActivity : AppCompatActivity() {
         binding = ActivityCategoryBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //init //firebase auth
+        //Initialize firebase auth
         firebaseAuth = FirebaseAuth.getInstance()
 
-        //caonfiure progress dialog
+        //Progress dialog
         progressDialog = ProgressDialog(this)
-        progressDialog.setTitle("Please wait...")
+        progressDialog.setTitle("Processing...")
         progressDialog.setCanceledOnTouchOutside(false)
 
-        //handle click, go back
+        //Back button
         binding.backButton.setOnClickListener {
             onBackPressed()
         }
 
-        //handle click, begin upload category
+        //Submit button
         binding.submitButton.setOnClickListener {
             validateData()
         }
     }
 
     private var category =""
-    
     private fun validateData() {
-        //validate data
 
-        //get data
+        //Capture the user input data from layout view components
         category = binding.categoryEdit.text.toString().trim()
 
-        //validate data
+        //Check empty category input
         if(category.isEmpty()){
-            Toast.makeText(this, "Enter Category...", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Please enter category", Toast.LENGTH_SHORT).show()
         }
         else{
+            //Add data to firebase
             addCategoryFirebase()
-
         }
     }
 
@@ -64,10 +62,10 @@ class CategoryActivity : AppCompatActivity() {
         //show progress
         progressDialog.show()
 
-        //get timestamp
+        //Timestamp
         val timestamp = System.currentTimeMillis()
 
-        //setup data to add in firebase db
+        //Setup data to add in firebase db
         val hashMap = HashMap<String, Any>()
         hashMap["id"] = "$timestamp"
         hashMap["category"] = category
@@ -75,19 +73,19 @@ class CategoryActivity : AppCompatActivity() {
         hashMap["uid"] = "${firebaseAuth.uid}"
 
         //add to firebase db : Database Root > Categories > categoryID > Info
-        val ref = FirebaseDatabase.getInstance().getReference("Categories")
-        ref.child("$timestamp")
+        val cat = FirebaseDatabase.getInstance().getReference("Categories")
+        cat.child("$timestamp")
             .setValue(hashMap)
             .addOnSuccessListener {
-                //add success
+                //Successful
                 progressDialog.dismiss()
-                Toast.makeText(this, "Added Successfully...", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Category added Successfully...", Toast.LENGTH_SHORT).show()
 
             }
-            .addOnFailureListener { e->
-                //failed to add
+            .addOnFailureListener {
+                //Failed
                 progressDialog.dismiss()
-                Toast.makeText(this, "Failed to add due to ${e.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Category failed to add", Toast.LENGTH_SHORT).show()
 
             }
 

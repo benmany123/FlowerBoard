@@ -12,10 +12,10 @@ import com.google.firebase.database.*
 
 class LoginActivity : AppCompatActivity() {
 
-    //viewbinding
+    //View binding layout file
     private lateinit var binding: ActivityLoginBinding
 
-    //firebase auth
+    //Firebase auth
     private lateinit var firebaseAuth: FirebaseAuth
 
     //progress dialog
@@ -26,12 +26,12 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //init firebase auth
+        //Initialize firebase auth
         firebaseAuth = FirebaseAuth.getInstance()
 
-        //init progress dialog, will show while login user
+        //Initialize progress dialog
         progressDialog = ProgressDialog(this)
-        progressDialog.setTitle("Please wait")
+        progressDialog.setTitle("Please wait a second")
         progressDialog.setCanceledOnTouchOutside(false)
 
         //handle click, not have ac
@@ -39,15 +39,8 @@ class LoginActivity : AppCompatActivity() {
             startActivity(Intent(this, RegisterActivity::class.java))
         }
 
-        //hadnle click, begin login
+        //handle click, begin login
         binding.loginButton.setOnClickListener {
-            /*Steps
-            * 1. Input data
-            * 2. Validate data
-            * 3. Login - firebase auth
-            * 4. Check user type - firebase auth
-            *   if user - move to user page
-            *   if admin - move to admin page*/
             validateData()
         }
 
@@ -58,16 +51,16 @@ class LoginActivity : AppCompatActivity() {
     private var password =""
 
     private fun validateData() {
-        //1. Input data
+        //Capture the user input data from layout view components
         email= binding.emailEt.text.toString().trim()
         password=binding.passwordEt.text.toString().trim()
 
-        //2. Validate data
+        //Validate the email format
         if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-            Toast.makeText(this,"Invalid email format...", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this,"Please enter a valid email format", Toast.LENGTH_SHORT).show()
         }
         else if(password.isEmpty()){
-            Toast.makeText(this,"Enter password...", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this,"Please enter password", Toast.LENGTH_SHORT).show()
         }
         else{
             loginUser()
@@ -75,54 +68,50 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun loginUser() {
-        //3. Login - Firebase Auth
-
-        //show progress
-        progressDialog.setMessage("Logging In...")
+        //Progress Dialog
+        progressDialog.setMessage("Processing login")
         progressDialog.show()
 
         firebaseAuth.signInWithEmailAndPassword(email, password)
             .addOnSuccessListener {
-                //login success
+                //Success login
                 checkUser()
             }
-            .addOnFailureListener { e->
-                //failed login
+            .addOnFailureListener {
+                //Failed login
                 progressDialog.dismiss()
-                Toast.makeText(this,"Login Failed ${e.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,"Login failed", Toast.LENGTH_SHORT).show()
             }
 
     }
 
     private fun checkUser() {
-        /* 4. Check user type - firebase auth
-        *   if user - move to user page
-        *   if admin - move to admin page*/
 
+        //Checking message
         progressDialog.setMessage("Checking User...")
 
         val firebaseUser = firebaseAuth.currentUser!!
-
         val ref=FirebaseDatabase.getInstance().getReference("Users")
         ref.child(firebaseUser.uid)
             .addListenerForSingleValueEvent(object : ValueEventListener{
                 override fun onDataChange(snapshot: DataSnapshot) {
                     progressDialog.dismiss()
 
-                    //get user tpye eg user or admin
+                    //Get user type
                     val userType =snapshot.child("userType").value
+
+                    // If the user type is user, the page will move to user activity layout
                     if(userType =="user"){
-                        //simple user, open user page
                         startActivity(Intent(this@LoginActivity, UserActivity::class.java))
                         finish()
                     }
+
+                    // If the user type is admin, the page will move to admin activity layout
                     else if (userType=="admin"){
-                        //admin, open admin page
                         startActivity(Intent(this@LoginActivity, AdminActivity::class.java))
                         finish()
                     }
                 }
-
                 override fun onCancelled(error: DatabaseError) {
 
                 }

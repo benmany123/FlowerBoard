@@ -103,7 +103,7 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun updateUserInfo() {
 
-        progressDialog.setMessage("Rpocessing...")
+        progressDialog.setMessage("Processing...")
         val timestamp= System.currentTimeMillis()
         val uid = firebaseAuth.uid
         val hashMap: HashMap<String, Any?> = HashMap()
