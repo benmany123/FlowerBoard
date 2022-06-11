@@ -17,13 +17,13 @@ import com.google.firebase.database.ValueEventListener
 
 class UserFragment : Fragment {
 
-    //view binding fragment_products_user.xml => FragmentProductsUserBinding
+    //View binding fragment
     private lateinit var binding: FragmentUserBinding
 
     public companion object{
-        private const val TAG ="PRODUCTS_USER_TAG"
+        private const val TAG ="PRODUCTS_USER"
 
-        //receive data from activity to load products e.g. categoryId, category, uid
+        //Collect data from activity to load products
         public fun newInstance(categoryId: String, category: String, uid:String): UserFragment{
             val fragment = UserFragment()
             //put data to bundle intent
@@ -39,15 +39,17 @@ class UserFragment : Fragment {
     private var categoryId = ""
     private var category = ""
     private var uid = ""
-    //arraylist to hold pdfs
-    private lateinit var pdfArrayList: ArrayList<modelProduct>
+
+    //Array list to hold products information
+    private lateinit var productArray: ArrayList<modelProduct>
     private lateinit var adapterPdfUser: UserProductAdapter
 
     constructor()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //get arguments that we passed in new Instance method
+
+        //Get arguments in new Instance method
         val args = arguments
         if( args != null){
             categoryId = args.getString("categoryId")!!
@@ -56,76 +58,85 @@ class UserFragment : Fragment {
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?): View? {
+
+        // Inflate layout for fragment
         binding = FragmentUserBinding.inflate(LayoutInflater.from(context), container, false)
 
-        //load pdf according to category, this fragment will have new instance to load each category pdfs
+        //Based on category to load product data
         Log.d(TAG, "onCreateView: Category: $category")
         if(category == "All"){
-            //load all products
+            //Load all products
             loadAll()
         }
         else{
-            //load selected category products
+            //Load user selected products
             loadSelected()
         }
-
         return binding.root
     }
 
     private fun loadAll() {
-        //init list
-        pdfArrayList = ArrayList()
-        val ref = FirebaseDatabase.getInstance().getReference("FlowerBoards")
-        ref.addValueEventListener(object : ValueEventListener{
+
+        //Initialize the array list
+        productArray = ArrayList()
+        val cat = FirebaseDatabase.getInstance().getReference("FlowerBoards")
+        cat.addValueEventListener(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
-                //clear list before starting adding data into it
-                pdfArrayList.clear()
+
+                //Clear the product array list
+                productArray.clear()
                 for (ds in snapshot.children){
-                    //get data
+
+                    //Get the value from model product
                     val model = ds.getValue(modelProduct::class.java)
-                    //add to list
-                    pdfArrayList.add(model!!)
+
+                    //Add value to the array list
+                    productArray.add(model!!)
                 }
-                //setup adapter
-                adapterPdfUser = UserProductAdapter(context!!, pdfArrayList)
-                //set adapter to recycle view
+
+                //Setup the user product adapter
+                adapterPdfUser = UserProductAdapter(context!!, productArray)
+
+                //Set adapter to recycle view
                 binding.productsRv.adapter = adapterPdfUser
             }
 
             override fun onCancelled(error: DatabaseError) {
-                //
+                //Cancel
             }
         })
     }
 
     private fun loadSelected() {
-        //init list
-        pdfArrayList = ArrayList()
-        val ref = FirebaseDatabase.getInstance().getReference("FlowerBoards")
-        ref.orderByChild("categoryId").equalTo(categoryId)
+
+        //Initialize list
+        productArray = ArrayList()
+        val cat = FirebaseDatabase.getInstance().getReference("FlowerBoards")
+        cat.orderByChild("categoryId").equalTo(categoryId)
             .addValueEventListener(object : ValueEventListener{
-            override fun onDataChange(snapshot: DataSnapshot) {
-                //clear list before starting adding data into it
-                pdfArrayList.clear()
-                for (ds in snapshot.children){
-                    //get data
-                    val model = ds.getValue(modelProduct::class.java)
-                    //add to list
-                    pdfArrayList.add(model!!)
+                override fun onDataChange(snapshot: DataSnapshot) {
+
+                    //Clear the product array list
+                    productArray.clear()
+                    for (ds in snapshot.children){
+
+                        //Get value from model product
+                        val model = ds.getValue(modelProduct::class.java)
+
+                        //Add value to the product array list
+                        productArray.add(model!!)
+                    }
+
+                    //Setup adapter
+                    adapterPdfUser = UserProductAdapter(context!!, productArray)
+
+                    //Set adapter to recycle view
+                    binding.productsRv.adapter = adapterPdfUser
                 }
-                //setup adapter
-                adapterPdfUser = UserProductAdapter(context!!, pdfArrayList)
-                //set adapter to recycle view
-                binding.productsRv.adapter = adapterPdfUser
-            }
-            override fun onCancelled(error: DatabaseError) {
-                //
-            }
+                override fun onCancelled(error: DatabaseError) {
+                    //Cancel
+                }
         })
     }
 

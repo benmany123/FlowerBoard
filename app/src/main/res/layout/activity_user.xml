@@ -34,10 +34,11 @@
             android:layout_height="match_parent"
             android:layout_centerHorizontal="true"
             android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
-            android:layout_margin="10dp"
+            android:layout_marginBottom="10dp"
             android:layout_toRightOf="@+id/user"
-            android:text="user@gmail.com"
+            android:text="user03@gmail.com"
             android:textColor="@color/white" />
 
         <ImageButton
@@ -58,9 +59,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/toolbar"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="5dp"
-        android:layout_margin="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
         android:background="@android:color/transparent"
         app:tabBackground="@drawable/selected_tab"
         app:tabIndicatorFullWidth="false"

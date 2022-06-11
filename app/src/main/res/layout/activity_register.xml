@@ -37,10 +37,10 @@
             android:layout_below="@id/pic01"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
-            android:text="Sign Up"
-            android:textSize="28sp"
             android:fontFamily="sans-serif-condensed-medium"
-            android:textColor="@color/black" />
+            android:text="Sign Up"
+            android:textColor="@color/black"
+            android:textSize="28sp" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -153,9 +153,9 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/confirmPasswordTIL"
             android:layout_marginTop="20dp"
-            android:text="Register"
             android:background="@drawable/button01"
-            android:textColor="@color/white"/>
+            android:text="Register"
+            android:textColor="@color/white" />
     </RelativeLayout>
 
 </RelativeLayout>

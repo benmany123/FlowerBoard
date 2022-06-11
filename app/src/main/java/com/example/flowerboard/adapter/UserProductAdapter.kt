@@ -42,7 +42,7 @@ class UserProductAdapter : RecyclerView.Adapter<UserProductAdapter.ProductUserHo
         val price = model.price
         val createdDate = MyApplication.formatTimeStamp(timestamp)
 
-        //set data
+        //Set data
         holder.titleTv.text = productTitle
         holder.descriptionTv.text = productDescription
         holder.dateTv.text = createdDate

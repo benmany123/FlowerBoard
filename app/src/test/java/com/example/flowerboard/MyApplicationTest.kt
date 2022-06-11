@@ -10,7 +10,7 @@ import java.util.*
 
 class MyApplicationTest{
 
-    @Test
+    @Tes
     fun formatTimeStamp(){
         val date = Calendar.getInstance(Locale.ENGLISH)
         date.timeInMillis = 1654780712771
